@@ -4120,6 +4120,162 @@ img {
 
 }
 
+/* =========================================================
+   MOBILE — LARGER INFO BLOCKS
+   Skills / Devices / Contacts only
+========================================================= */
+
+@media (max-width: 768px) {
+
+    /* =====================================================
+       SKILLS / TOOLS
+    ===================================================== */
+
+    .tools-panel {
+        width: 100%;
+        padding: 15px;
+    }
+
+    .tools-list {
+        width: 100%;
+        gap: 9px;
+    }
+
+    .tool-row {
+        min-height: 58px;
+        padding: 0 12px;
+
+        font-size: 12px;
+    }
+
+    .tool-icon {
+        width: 19px;
+        height: 19px;
+        flex-basis: 19px;
+
+        margin-right: 8px;
+    }
+
+    .tool-category {
+        padding-left: 7px;
+        font-size: 8px;
+        letter-spacing: 0.8px;
+    }
+
+
+    /* =====================================================
+       DEVICES
+    ===================================================== */
+
+    .device-panel {
+        width: 100%;
+    }
+
+    .device-row {
+        min-height: 70px;
+        padding: 15px 16px;
+
+        gap: 14px;
+    }
+
+    .device-row span {
+        font-size: 9px;
+        letter-spacing: 1.5px;
+    }
+
+    .device-row strong {
+        max-width: 64%;
+
+        font-size: 12px;
+        line-height: 1.45;
+    }
+
+
+    /* =====================================================
+       CONTACTS
+    ===================================================== */
+
+    .contact-panel {
+        width: 100%;
+    }
+
+    .contact-row {
+        min-height: 70px;
+        padding: 15px 16px;
+
+        gap: 14px;
+    }
+
+    .contact-row span {
+        font-size: 9px;
+        letter-spacing: 1.5px;
+    }
+
+    .contact-row strong {
+        max-width: 68%;
+
+        font-size: 12px;
+        line-height: 1.45;
+    }
+
+}
+
+
+@media (max-width: 390px) {
+
+    /* =====================================================
+       SMALL PHONES
+    ===================================================== */
+
+    .tools-panel {
+        padding: 14px;
+    }
+
+    .tools-list {
+        gap: 8px;
+    }
+
+    .tool-row {
+        min-height: 54px;
+        padding: 0 10px;
+
+        font-size: 11px;
+    }
+
+    .tool-icon {
+        width: 18px;
+        height: 18px;
+        flex-basis: 18px;
+
+        margin-right: 7px;
+    }
+
+    .tool-category {
+        font-size: 7.5px;
+    }
+
+
+    .device-row,
+    .contact-row {
+        min-height: 66px;
+        padding: 14px 14px;
+
+        gap: 12px;
+    }
+
+    .device-row span,
+    .contact-row span {
+        font-size: 8.5px;
+        letter-spacing: 1.3px;
+    }
+
+    .device-row strong,
+    .contact-row strong {
+        font-size: 11px;
+        line-height: 1.4;
+    }
+
+}
 
 /* =========================================================
    ACCESSIBILITY
@@ -4171,6 +4327,661 @@ a:focus-visible {
         scroll-behavior:
             auto !important;
 
+    }
+
+}
+
+/* =========================================================
+   DARK GRAPHITE OVERRIDE
+   Visual redesign only — HTML / JS untouched
+========================================================= */
+
+:root {
+    --bg: #050505;
+    --bg-soft: #0a0a0a;
+
+    --green: #d4d4d4;
+    --green-bright: #f0f0f0;
+    --green-soft: rgba(255, 255, 255, 0.22);
+    --green-faint: rgba(255, 255, 255, 0.055);
+
+    --cyan: #eeeeee;
+
+    --text: #d0d0d0;
+    --text-soft: #999999;
+    --text-dim: #606060;
+
+    --panel: rgba(15, 15, 15, 0.84);
+    --panel-strong: rgba(20, 20, 20, 0.94);
+
+    --border: rgba(255, 255, 255, 0.11);
+    --border-bright: rgba(255, 255, 255, 0.30);
+}
+
+
+/* =========================================================
+   GLOBAL BACKGROUND
+========================================================= */
+
+html {
+    background: #050505;
+}
+
+body {
+    color: #d0d0d0;
+
+    background:
+        radial-gradient(
+            circle at 50% 0%,
+            rgba(255, 255, 255, 0.025),
+            transparent 35%
+        ),
+        linear-gradient(
+            180deg,
+            #050505 0%,
+            #090909 45%,
+            #050505 100%
+        );
+}
+
+
+/* =========================================================
+   SCREEN EFFECTS
+========================================================= */
+
+.screen-noise {
+    opacity: 0.08;
+    mix-blend-mode: screen;
+}
+
+.screen-scanlines {
+    opacity: 0.18;
+}
+
+
+/* =========================================================
+   TOPBAR
+========================================================= */
+
+.topbar {
+    border-bottom-color:
+        rgba(255, 255, 255, 0.075);
+
+    background:
+        rgba(5, 5, 5, 0.94);
+}
+
+.terminal-logo {
+    color: #d8d8d8;
+}
+
+.logo-cursor {
+    color: #ffffff;
+}
+
+
+/* =========================================================
+   SECTION PROGRESS
+========================================================= */
+
+.section-progress-bar {
+    background:
+        rgba(255, 255, 255, 0.16);
+}
+
+.section-progress-bar:hover {
+    background:
+        rgba(255, 255, 255, 0.42);
+}
+
+.section-progress-bar.active {
+    background: #e5e5e5;
+
+    box-shadow:
+        0 0 12px
+        rgba(255, 255, 255, 0.18);
+}
+
+
+/* =========================================================
+   SECTION HEADERS
+========================================================= */
+
+.section-topline {
+    color: #bdbdbd;
+}
+
+.topline-line {
+    background:
+        linear-gradient(
+            90deg,
+            rgba(255, 255, 255, 0.28),
+            rgba(255, 255, 255, 0.035)
+        );
+}
+
+.page-counter {
+    color: #555555;
+}
+
+.file-heading {
+    color: #aaaaaa;
+}
+
+.file-dot {
+    background: #d0d0d0;
+
+    box-shadow:
+        0 0 12px
+        rgba(255, 255, 255, 0.18);
+}
+
+
+/* =========================================================
+   HOME
+========================================================= */
+
+.avatar-frame {
+    border-color:
+        rgba(255, 255, 255, 0.25);
+
+    background:
+        rgba(15, 15, 15, 0.72);
+
+    box-shadow:
+        0 0 60px
+        rgba(255, 255, 255, 0.035);
+}
+
+.avatar-image {
+    background: #0a0a0a;
+}
+
+.avatar-glow {
+    background:
+        radial-gradient(
+            circle,
+            rgba(255, 255, 255, 0.045),
+            transparent 65%
+        );
+}
+
+.frame-top-left,
+.frame-top-right,
+.frame-bottom-left,
+.frame-bottom-right {
+    border-color: #d8d8d8;
+}
+
+.record-status {
+    color:
+        rgba(170, 170, 170, 0.55);
+}
+
+.boot-label {
+    color: #bdbdbd;
+}
+
+.hero-name {
+    color: #eeeeee;
+}
+
+.hero-description {
+    color:
+        rgba(190, 190, 190, 0.62);
+}
+
+
+/* =========================================================
+   BUTTONS
+========================================================= */
+
+.terminal-button {
+    border-color:
+        rgba(255, 255, 255, 0.27);
+
+    color: #d8d8d8;
+
+    background:
+        rgba(255, 255, 255, 0.018);
+
+    box-shadow:
+        0 0 22px
+        rgba(255, 255, 255, 0.018);
+}
+
+.terminal-button:hover {
+    background:
+        rgba(255, 255, 255, 0.055);
+
+    box-shadow:
+        0 0 26px
+        rgba(255, 255, 255, 0.055);
+}
+
+.button-symbol {
+    color: #606060;
+}
+
+
+/* =========================================================
+   SLIDER PAGES
+========================================================= */
+
+.slider-page {
+    opacity: 0.32;
+}
+
+.slider-page.is-active {
+    opacity: 1;
+}
+
+
+/* =========================================================
+   CARDS
+========================================================= */
+
+.terminal-card {
+    border-color:
+        rgba(255, 255, 255, 0.085);
+
+    background:
+        linear-gradient(
+            180deg,
+            rgba(20, 20, 20, 0.82),
+            rgba(13, 13, 13, 0.76)
+        );
+
+    box-shadow:
+        inset
+        0 0 0 1px
+        rgba(255, 255, 255, 0.008);
+}
+
+.terminal-card:hover {
+    border-color:
+        rgba(255, 255, 255, 0.22);
+
+    background:
+        rgba(24, 24, 24, 0.92);
+}
+
+.card-label {
+    color:
+        rgba(140, 140, 140, 0.55);
+}
+
+.terminal-card strong {
+    color: #cfcfcf;
+}
+
+.timezone-card small {
+    color:
+        rgba(125, 125, 125, 0.60);
+}
+
+.digital-time {
+    color: #e0e0e0 !important;
+}
+
+
+/* =========================================================
+   PANELS
+========================================================= */
+
+.secondary-title {
+    color:
+        rgba(190, 190, 190, 0.65);
+}
+
+.terminal-panel {
+    border-color:
+        rgba(255, 255, 255, 0.12);
+
+    background:
+        rgba(14, 14, 14, 0.84);
+}
+
+.panel-heading {
+    color:
+        rgba(135, 135, 135, 0.58);
+}
+
+
+/* =========================================================
+   LANGUAGES
+========================================================= */
+
+.language-row {
+    border-color:
+        rgba(255, 255, 255, 0.075);
+
+    color: #c3c3c3;
+
+    background:
+        rgba(11, 11, 11, 0.88);
+}
+
+.language-row:hover {
+    border-color:
+        rgba(255, 255, 255, 0.22);
+}
+
+.favorite-panel {
+    border-color:
+        rgba(255, 255, 255, 0.11);
+
+    background:
+        rgba(14, 14, 14, 0.84);
+
+    color:
+        rgba(130, 130, 130, 0.60);
+}
+
+.favorite-panel strong {
+    color: #d0d0d0;
+}
+
+
+/* =========================================================
+   TOOLS
+========================================================= */
+
+.tool-row {
+    border-color:
+        rgba(255, 255, 255, 0.08);
+
+    color: #c3c3c3;
+
+    background:
+        rgba(11, 11, 11, 0.86);
+}
+
+.tool-row:hover {
+    border-color:
+        rgba(255, 255, 255, 0.21);
+
+    background:
+        rgba(20, 20, 20, 0.90);
+}
+
+.tool-category {
+    color:
+        rgba(180, 180, 180, 0.50);
+}
+
+
+/* =========================================================
+   DEVICES / CONTACT
+========================================================= */
+
+.device-content h2,
+.contact-content h2 {
+    color: #eeeeee;
+}
+
+.device-panel,
+.contact-panel {
+    border-color:
+        rgba(255, 255, 255, 0.11);
+
+    background:
+        rgba(14, 14, 14, 0.86);
+}
+
+.device-row,
+.contact-row {
+    border-bottom-color:
+        rgba(255, 255, 255, 0.065);
+}
+
+.device-row span,
+.contact-row span {
+    color:
+        rgba(130, 130, 130, 0.60);
+}
+
+.device-row strong,
+.contact-row strong {
+    color: #c9c9c9;
+}
+
+.contact-row:hover {
+    background:
+        rgba(255, 255, 255, 0.035);
+}
+
+
+/* =========================================================
+   SLIDER CONTROLS
+========================================================= */
+
+.slider-arrow {
+    border-color:
+        rgba(255, 255, 255, 0.20);
+
+    color:
+        rgba(205, 205, 205, 0.72);
+
+    background:
+        rgba(255, 255, 255, 0.014);
+}
+
+.slider-arrow:hover:not(:disabled) {
+    color: #eeeeee;
+
+    border-color:
+        rgba(255, 255, 255, 0.38);
+
+    background:
+        rgba(255, 255, 255, 0.045);
+}
+
+.slider-dot {
+    background:
+        rgba(150, 150, 150, 0.38);
+}
+
+.slider-dot.active {
+    background: #dedede;
+
+    box-shadow:
+        0 0 12px
+        rgba(255, 255, 255, 0.18);
+}
+
+
+/* =========================================================
+   FINAL SECTION
+========================================================= */
+
+.final-section {
+    background:
+        radial-gradient(
+            circle at 50% 35%,
+            rgba(255, 255, 255, 0.035),
+            transparent 30%
+        ),
+
+        radial-gradient(
+            circle at 20px 20px,
+            rgba(255, 255, 255, 0.018) 1px,
+            transparent 1px
+        ),
+
+        linear-gradient(
+            180deg,
+            #050505 0%,
+            #090909 50%,
+            #050505 100%
+        );
+
+    background-size:
+        auto,
+        45px 45px,
+        auto;
+}
+
+
+.final-up-button {
+    border-color:
+        rgba(255, 255, 255, 0.18);
+
+    background:
+        rgba(15, 15, 15, 0.88);
+
+    box-shadow:
+        0 0 30px
+        rgba(255, 255, 255, 0.025);
+}
+
+.final-up-button:hover {
+    border-color:
+        rgba(255, 255, 255, 0.40);
+
+    background:
+        rgba(255, 255, 255, 0.045);
+
+    box-shadow:
+        0 0 35px
+        rgba(255, 255, 255, 0.07);
+}
+
+.final-up-button svg {
+    stroke: #dddddd;
+}
+
+.final-content h2 {
+    color: #e5e5e5;
+
+    text-shadow:
+        0 0 22px
+        rgba(255, 255, 255, 0.035);
+}
+
+.final-copy {
+    color: #707070;
+}
+
+
+/* =========================================================
+   FINAL MENU
+========================================================= */
+
+.final-menu-button {
+    border-color:
+        rgba(255, 255, 255, 0.105);
+
+    background:
+        rgba(15, 15, 15, 0.80);
+
+    color: #9f9f9f;
+}
+
+.final-menu-button:hover {
+    border-color:
+        rgba(255, 255, 255, 0.28);
+
+    background:
+        rgba(255, 255, 255, 0.04);
+
+    color: #dedede;
+
+    box-shadow:
+        0 0 20px
+        rgba(255, 255, 255, 0.035);
+}
+
+
+/* =========================================================
+   FINAL BADGE
+========================================================= */
+
+.final-terminal-badge {
+    border-color:
+        rgba(255, 255, 255, 0.17);
+
+    color: #d0d0d0;
+
+    background:
+        rgba(10, 10, 10, 0.82);
+
+    box-shadow:
+        0 0 25px
+        rgba(255, 255, 255, 0.025);
+}
+
+.final-terminal-badge:hover {
+    background:
+        rgba(255, 255, 255, 0.04);
+
+    border-color:
+        rgba(255, 255, 255, 0.36);
+}
+
+
+/* =========================================================
+   FOOTER
+========================================================= */
+
+.footer {
+    border-top-color:
+        rgba(255, 255, 255, 0.065);
+}
+
+.footer-line {
+    color: #a7a7a7;
+}
+
+.footer p {
+    color:
+        rgba(115, 115, 115, 0.56);
+}
+
+
+/* =========================================================
+   FOCUS
+========================================================= */
+
+button:focus-visible,
+a:focus-visible {
+    outline-color: #d5d5d5;
+}
+
+
+/* =========================================================
+   REMOVE GREEN FROM ANY REMAINING ELEMENTS
+========================================================= */
+
+[class*="green"] {
+    color: #cfcfcf;
+}
+
+
+/* =========================================================
+   MOBILE — KEEP DARK PALETTE
+========================================================= */
+
+@media (max-width: 768px) {
+
+    .section-progress-bar.active {
+        background: #dedede;
+    }
+
+    .slider-dot.active {
+        background: #dedede;
+    }
+
+}
+
+@media (max-width: 390px) {
+
+    .section-progress-bar.active {
+        background: #dedede;
+    }
+
+    .slider-dot.active {
+        background: #dedede;
     }
 
 }
