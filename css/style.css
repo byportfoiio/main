@@ -1602,7 +1602,7 @@ img {
 
 @media (max-width: 768px) {
   html {
-    scroll-snap-type: y mandatory;
+    scroll-snap-type: y proximity;
   }
 
   body {
@@ -1640,13 +1640,17 @@ img {
   .section {
     width: 100%;
 
-    height: 100svh;
-
     min-height: 100svh;
 
-    max-height: 100svh;
+    height: auto;
+
+    max-height: none;
 
     padding: 94px 18px 22px;
+  }
+
+  .data-section {
+    overflow: visible;
   }
 
   /* HOME */
@@ -1702,7 +1706,9 @@ img {
   /* SECTION HEADER */
 
   .section-shell {
-    height: 100%;
+    height: auto;
+
+    min-height: calc(100svh - 116px);
 
     grid-template-rows:
       auto
@@ -2029,6 +2035,14 @@ img {
 
   .section {
     padding: 91px 14px 18px;
+  }
+
+  .section-shell {
+    min-height: calc(100svh - 109px);
+  }
+
+  .profile-expanded {
+    height: calc(100svh - 109px);
   }
 
   .avatar-frame {
@@ -3060,7 +3074,7 @@ a:focus-visible {
   z-index: 2;
   inset: 0;
   display: grid;
-  grid-template-rows: auto auto minmax(0, 1fr) auto;
+  grid-template-rows: auto minmax(0, 1fr) auto;
   gap: 12px;
   padding: 14px;
   overflow: hidden;
@@ -3089,8 +3103,8 @@ a:focus-visible {
 }
 
 .profile-expanded {
-  height: min(72svh, 760px);
-  min-height: min(72svh, 520px);
+  height: min(86svh, 600px);
+  min-height: min(86svh, 520px);
   grid-template-rows: minmax(0, 1fr);
   gap: 0;
 }
@@ -3146,6 +3160,12 @@ a:focus-visible {
   cursor: grab;
 }
 
+.cyber-track,
+.cyber-slide {
+  height: 100%;
+  min-height: 0;
+}
+
 .cyber-slide {
   display: flex;
   align-items: center;
@@ -3153,6 +3173,7 @@ a:focus-visible {
 }
 
 .cyber-slide .secondary-page-content {
+  min-height: 0;
   max-height: 100%;
   overflow-y: auto;
   scrollbar-color: rgba(0, 255, 136, 0.24) transparent;
@@ -3165,8 +3186,10 @@ a:focus-visible {
 
 @media (max-width: 768px) {
   .profile-expanded {
-    height: 100%;
+    height: calc(100svh - 116px);
+
     min-height: 0;
+
     grid-template-rows: minmax(0, 1fr);
   }
 
@@ -3174,6 +3197,11 @@ a:focus-visible {
     gap: 8px;
     padding: 10px;
     border-radius: 8px;
+  }
+
+  .cyber-slide {
+    height: 100%;
+    min-height: 0;
   }
 
   .cyber-detail-heading {
