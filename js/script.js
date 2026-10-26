@@ -183,7 +183,7 @@
 
       if (
         event.target.closest(
-          ".slider-arrow, .slider-dot, [data-open-cyber]",
+          ".slider-arrow, .slider-dot, [data-open-cyber], a",
         )
       ) {
         return;
