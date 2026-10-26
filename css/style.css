@@ -3005,13 +3005,6 @@ a:focus-visible {
   font-size: 12px;
 }
 
-.cyber-tools-button {
-  width: fit-content;
-  min-height: 46px;
-  margin-top: 2px;
-  cursor: pointer;
-}
-
 .cyber-tools-page .tool-row {
   white-space: normal;
 }
@@ -3041,8 +3034,169 @@ a:focus-visible {
   .cyber-copy .cyber-safety-note {
     font-size: 10px;
   }
+}
 
-  .cyber-tools-button {
+.profile-shell {
+  transition:
+    height 0.5s cubic-bezier(0.16, 1, 0.3, 1),
+    min-height 0.5s cubic-bezier(0.16, 1, 0.3, 1),
+    grid-template-rows 0.45s ease,
+    gap 0.45s ease;
+}
+
+.profile-stage {
+  position: relative;
+  min-width: 0;
+  min-height: 0;
+}
+
+.profile-main {
+  height: 100%;
+  transition: opacity 0.25s ease;
+}
+
+.cyber-detail {
+  position: absolute;
+  z-index: 2;
+  inset: 0;
+  display: grid;
+  grid-template-rows: auto auto minmax(0, 1fr) auto;
+  gap: 12px;
+  padding: 14px;
+  overflow: hidden;
+  border: 1px solid rgba(0, 255, 136, 0.2);
+  border-radius: 10px;
+  background:
+    radial-gradient(
+      circle at 50% 0,
+      rgba(0, 255, 136, 0.045),
+      transparent 50%
+    ),
+    rgba(3, 9, 6, 0.98);
+  box-shadow:
+    0 24px 80px rgba(0, 0, 0, 0.48),
+    inset 0 0 30px rgba(0, 255, 136, 0.018);
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+  transform: scale(0.9);
+  clip-path: inset(20% 18% round 14px);
+  transition:
+    opacity 0.35s ease,
+    transform 0.5s cubic-bezier(0.16, 1, 0.3, 1),
+    clip-path 0.5s cubic-bezier(0.16, 1, 0.3, 1),
+    visibility 0s linear 0.5s;
+}
+
+.profile-expanded {
+  height: min(72svh, 760px);
+  min-height: min(72svh, 520px);
+  grid-template-rows: minmax(0, 1fr);
+  gap: 0;
+}
+
+.profile-expanded .section-topline,
+.profile-expanded > .file-heading,
+.profile-expanded > .profile-main-controls {
+  display: none;
+}
+
+.profile-expanded .cyber-detail {
+  opacity: 1;
+  visibility: visible;
+  pointer-events: auto;
+  transform: scale(1);
+  clip-path: inset(0 round 10px);
+  transition-delay: 0s;
+}
+
+.profile-expanded .profile-main {
+  opacity: 0;
+  pointer-events: none;
+}
+
+.cyber-detail-heading {
+  min-height: 48px;
+  padding: 0 14px 0 58px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  border-bottom: 1px solid rgba(0, 255, 136, 0.1);
+  color: rgba(0, 255, 136, 0.72);
+  font-size: 12px;
+  letter-spacing: 1px;
+}
+
+.cyber-detail-heading .page-counter {
+  margin-left: auto;
+}
+
+.cyber-back-button {
+  position: absolute;
+  z-index: 3;
+  top: 14px;
+  left: 14px;
+  width: 44px;
+  height: 44px;
+}
+
+.cyber-viewport {
+  display: flex;
+  align-items: center;
+  cursor: grab;
+}
+
+.cyber-slide {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.cyber-slide .secondary-page-content {
+  max-height: 100%;
+  overflow-y: auto;
+  scrollbar-color: rgba(0, 255, 136, 0.24) transparent;
+}
+
+.cyber-controls {
+  min-height: 48px;
+  padding-top: 0;
+}
+
+@media (max-width: 768px) {
+  .profile-expanded {
+    height: 100%;
+    min-height: 0;
+    grid-template-rows: minmax(0, 1fr);
+  }
+
+  .cyber-detail {
+    gap: 8px;
+    padding: 10px;
+    border-radius: 8px;
+  }
+
+  .cyber-detail-heading {
     min-height: 42px;
+    padding-left: 52px;
+    font-size: 10px;
+  }
+
+  .cyber-back-button {
+    top: 10px;
+    left: 10px;
+    width: 40px;
+    height: 40px;
+  }
+
+  .cyber-controls {
+    min-height: 44px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .profile-shell,
+  .cyber-detail {
+    transition-duration: 0.01ms;
   }
 }

@@ -62,8 +62,6 @@
 
     const dots = Array.from(controls.querySelectorAll(".slider-dot"));
 
-    const pageTriggers = Array.from(track.querySelectorAll("[data-slide-to]"));
-
     let currentIndex = 0;
 
     /* =================================================
@@ -156,18 +154,6 @@
       });
     });
 
-    pageTriggers.forEach((trigger) => {
-      trigger.addEventListener("click", () => {
-        const index = Number(trigger.dataset.slideTo);
-
-        if (!Number.isInteger(index)) {
-          return;
-        }
-
-        goTo(index);
-      });
-    });
-
     /* =================================================
            POINTER DRAG
            PC + TOUCH
@@ -195,7 +181,11 @@
        * или точке.
        */
 
-      if (event.target.closest(".slider-arrow, .slider-dot, [data-slide-to]")) {
+      if (
+        event.target.closest(
+          ".slider-arrow, .slider-dot, [data-open-cyber]",
+        )
+      ) {
         return;
       }
 
@@ -303,6 +293,10 @@
     updateUI();
 
     return {
+      goTo(index) {
+        goTo(index);
+      },
+
       next() {
         goTo(currentIndex + 1);
       },
@@ -324,6 +318,85 @@
 
     counterSelector: ".about-counter",
   });
+
+  const cyberSlider = createSlider({
+    trackSelector: ".cyber-track",
+
+    controlsSelector: '[data-slider-controls="cyber"]',
+
+    counterSelector: ".cyber-counter",
+  });
+
+  const profileShell = document.querySelector("#about .section-shell");
+
+  const profileMain = document.querySelector(".profile-main");
+
+  const profileMainControls = document.querySelector(
+    ".profile-main-controls",
+  );
+
+  const cyberDetail = document.querySelector(".cyber-detail");
+
+  const openCyberButton = document.querySelector("[data-open-cyber]");
+
+  const closeCyberButton = document.querySelector("[data-close-cyber]");
+
+  function openCyberDetails() {
+    if (
+      !profileShell ||
+      !profileMain ||
+      !profileMainControls ||
+      !cyberDetail ||
+      !openCyberButton
+    ) {
+      return;
+    }
+
+    aboutSlider?.goTo(1);
+    cyberSlider?.goTo(0);
+
+    profileShell.classList.add("profile-expanded");
+    profileMain.inert = true;
+    profileMainControls.inert = true;
+    cyberDetail.inert = false;
+    cyberDetail.setAttribute("aria-hidden", "false");
+    openCyberButton.setAttribute("aria-expanded", "true");
+
+    closeCyberButton?.focus({
+      preventScroll: true,
+    });
+  }
+
+  function closeCyberDetails() {
+    if (
+      !profileShell ||
+      !profileMain ||
+      !profileMainControls ||
+      !cyberDetail ||
+      !openCyberButton
+    ) {
+      return;
+    }
+
+    profileShell.classList.remove("profile-expanded");
+    profileMain.inert = false;
+    profileMainControls.inert = false;
+    cyberDetail.inert = true;
+    cyberDetail.setAttribute("aria-hidden", "true");
+    openCyberButton.setAttribute("aria-expanded", "false");
+
+    openCyberButton.focus({
+      preventScroll: true,
+    });
+  }
+
+  openCyberButton?.addEventListener("click", openCyberDetails);
+
+  closeCyberButton?.addEventListener("click", closeCyberDetails);
+
+  if (cyberDetail) {
+    cyberDetail.inert = true;
+  }
 
   createSlider({
     trackSelector: ".devices-track",
@@ -352,6 +425,21 @@
       tagName === "INPUT" || tagName === "TEXTAREA" || tagName === "SELECT";
 
     if (isTyping) {
+      return;
+    }
+
+    if (profileShell?.classList.contains("profile-expanded")) {
+      if (event.key === "Escape") {
+        event.preventDefault();
+        closeCyberDetails();
+      } else if (event.key === "ArrowLeft") {
+        event.preventDefault();
+        cyberSlider?.previous();
+      } else if (event.key === "ArrowRight") {
+        event.preventDefault();
+        cyberSlider?.next();
+      }
+
       return;
     }
 

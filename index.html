@@ -118,13 +118,13 @@
         ================================================== -->
 
       <section id="about" class="section data-section">
-        <div class="section-shell">
+        <div class="section-shell profile-shell">
           <div class="section-topline">
             <span class="section-number"> 01 </span>
 
             <div class="topline-line"></div>
 
-            <span class="page-counter about-counter"> PAGE 1/4 </span>
+            <span class="page-counter about-counter"> PAGE 1/2 </span>
           </div>
 
           <div class="file-heading">
@@ -133,8 +133,9 @@
             <span> ~ profile.json </span>
           </div>
 
-          <div class="slider-viewport">
-            <div class="slider-track about-track">
+          <div class="profile-stage">
+            <div class="slider-viewport profile-main">
+              <div class="slider-track about-track">
               <!-- =================================================
                              ABOUT PAGE 1
                         ================================================== -->
@@ -203,7 +204,8 @@
                       <button
                         type="button"
                         class="profile-category is-available"
-                        data-slide-to="2"
+                        data-open-cyber
+                        aria-expanded="false"
                       >
                         <span class="category-index">01</span>
                         <span class="category-name">Cybersecurity</span>
@@ -227,153 +229,155 @@
                   </div>
                 </div>
               </article>
+              </div>
+            </div>
 
-              <!-- =================================================
-                             ABOUT PAGE 3 — CYBERSECURITY
-                        ================================================== -->
+            <div class="cyber-detail" aria-hidden="true" inert>
+              <button
+                type="button"
+                class="slider-arrow cyber-back-button"
+                data-close-cyber
+                aria-label="Back to profile"
+              >
+                ←
+              </button>
 
-              <article class="slider-page about-page">
-                <div class="secondary-page-content cyber-page">
-                  <div class="secondary-title">
-                    <span> // cybersecurity · red team </span>
-                  </div>
+              <div class="cyber-detail-heading">
+                <span class="file-dot"></span>
+                <span>~ cybersecurity.json</span>
+                <span class="page-counter cyber-counter">PAGE 1/2</span>
+              </div>
 
-                  <div class="terminal-panel cyber-panel">
-                    <div class="panel-heading">НАПРАВЛЕНИЕ</div>
-
-                    <div class="cyber-copy">
-                      <p>
-                        Занимаюсь пентестингом, в первую очередь — Red Team:
-                        изучаю, как моделировать действия атакующего, чтобы
-                        находить слабые места и помогать их устранять.
-                      </p>
-
-                      <p>
-                        Интересны веб-, сетевой и другие направления
-                        тестирования на проникновение. Больше всего в Red Team
-                        нравится ощущение, будто ты настоящий хакер, и
-                        возможность исследовать систему с разных сторон, лучше
-                        понимать ее устройство, границы и возможности.
-                      </p>
-
-                      <p>
-                        Также интересуюсь анализом вредоносного ПО,
-                        социально-инженерными рисками и устойчивостью систем к
-                        DoS/DDoS.
-                      </p>
-
-                      <p class="cyber-safety-note">
-                        Практикую только в лабораториях и в рамках тестов, на
-                        которые получено разрешение.
-                      </p>
-                    </div>
-
-                    <button
-                      type="button"
-                      class="terminal-button cyber-tools-button"
-                      data-slide-to="3"
-                    >
-                      <span class="button-symbol">$</span>
-                      <span>Мои инструменты</span>
-                    </button>
-                  </div>
-                </div>
-              </article>
-
-              <!-- =================================================
-                             ABOUT PAGE 4 — CYBERSECURITY TOOLS
-                        ================================================== -->
-
-              <article class="slider-page about-page">
-                <div class="secondary-page-content cyber-tools-page">
-                  <div class="secondary-title">
-                    <span>// инструменты</span>
-                  </div>
-
-                  <div class="terminal-panel tools-panel">
-                    <div class="panel-heading">CYBERSECURITY TOOLKIT</div>
-
-                    <div class="tools-list">
-                      <div class="tool-row">
-                        <img
-                          src="./images/wrench.png"
-                          alt=""
-                          class="tool-icon"
-                          aria-hidden="true"
-                          draggable="false"
-                        />
-                        <span>Burp Suite</span>
+              <div class="slider-viewport cyber-viewport">
+                <div class="slider-track cyber-track">
+                  <article class="slider-page cyber-slide is-active">
+                    <div class="secondary-page-content cyber-page">
+                      <div class="secondary-title">
+                        <span>// cybersecurity · red team</span>
                       </div>
 
-                      <div class="tool-row">
-                        <img
-                          src="./images/wrench.png"
-                          alt=""
-                          class="tool-icon"
-                          aria-hidden="true"
-                          draggable="false"
-                        />
-                        <span>Wireshark</span>
-                      </div>
+                      <div class="terminal-panel cyber-panel">
+                        <div class="panel-heading">НАПРАВЛЕНИЕ</div>
 
-                      <div class="tool-row">
-                        <img
-                          src="./images/wrench.png"
-                          alt=""
-                          class="tool-icon"
-                          aria-hidden="true"
-                          draggable="false"
-                        />
-                        <span>Nmap</span>
-                      </div>
+                        <div class="cyber-copy">
+                          <p>
+                            Занимаюсь пентестингом, в первую очередь — Red Team:
+                            моделирование и имитация действий атакующего, чтобы
+                            находить слабые места/уязвимости
+                          </p>
 
-                      <div class="tool-row">
-                        <img
-                          src="./images/wrench.png"
-                          alt=""
-                          class="tool-icon"
-                          aria-hidden="true"
-                          draggable="false"
-                        />
-                        <span>Metasploit Framework</span>
-                      </div>
+                          <p>
+                            Ебашу веб, сетевые и другими виды пентестинга.
+                            Больше всего в Red Team нравится приближенность к реальному хакингу.
+                          </p>
 
-                      <div class="tool-row">
-                        <img
-                          src="./images/wrench.png"
-                          alt=""
-                          class="tool-icon"
-                          aria-hidden="true"
-                          draggable="false"
-                        />
-                        <span>GDB</span>
-                      </div>
+                          <p>
+                            Я умею писать вредоносные ПО (ратки, руткиты, стиллеры, блокировщики и слабые вирусы),
+                            но не использую их в злонамеренных целях
+                          </p>
 
-                      <div class="tool-row">
-                        <img
-                          src="./images/wrench.png"
-                          alt=""
-                          class="tool-icon"
-                          aria-hidden="true"
-                          draggable="false"
-                        />
-                        <span>Ghidra</span>
+                          <p class="cyber-safety-note">
+                            Практикую онли в лабороториях, баг хантах и на разрешенных сайтах, сервисах или платформах
+                          </p>
+                        </div>
                       </div>
                     </div>
-                  </div>
+                  </article>
 
-                  <div class="favorite-panel">
-                    <span>Любимый инструмент</span>
-                    <strong>Burp Suite</strong>
-                  </div>
+                  <article class="slider-page cyber-slide">
+                    <div class="secondary-page-content cyber-tools-page">
+                      <div class="secondary-title">
+                        <span>// инструменты</span>
+                      </div>
+
+                      <div class="terminal-panel tools-panel">
+                        <div class="panel-heading">CYBERSECURITY TOOLKIT</div>
+
+                        <div class="tools-list">
+                          <div class="tool-row">
+                            <img src="./images/wrench.png" alt="" class="tool-icon" aria-hidden="true" draggable="false" />
+                            <span>Burp Suite</span>
+                          </div>
+
+                          <div class="tool-row">
+                            <img src="./images/wrench.png" alt="" class="tool-icon" aria-hidden="true" draggable="false" />
+                            <span>Wireshark</span>
+                          </div>
+
+                          <div class="tool-row">
+                            <img src="./images/wrench.png" alt="" class="tool-icon" aria-hidden="true" draggable="false" />
+                            <span>Nmap</span>
+                          </div>
+
+                          <div class="tool-row">
+                            <img src="./images/wrench.png" alt="" class="tool-icon" aria-hidden="true" draggable="false" />
+                            <span>Metasploit Framework</span>
+                          </div>
+
+                          <div class="tool-row">
+                            <img src="./images/wrench.png" alt="" class="tool-icon" aria-hidden="true" draggable="false" />
+                            <span>GDB</span>
+                          </div>
+
+                          <div class="tool-row">
+                            <img src="./images/wrench.png" alt="" class="tool-icon" aria-hidden="true" draggable="false" />
+                            <span>Ghidra</span>
+                          </div>
+                        </div>
+                      </div>
+
+                      <div class="favorite-panel">
+                        <span>Любимый инструмент</span>
+                        <strong>Burp Suite</strong>
+                      </div>
+                    </div>
+                  </article>
                 </div>
-              </article>
+              </div>
+
+              <div class="slider-controls cyber-controls" data-slider-controls="cyber">
+                <button
+                  type="button"
+                  class="slider-arrow"
+                  data-action="prev"
+                  aria-label="Previous cybersecurity page"
+                >
+                  ←
+                </button>
+
+                <div class="slider-dots" role="tablist" aria-label="Cybersecurity pages">
+                  <button
+                    type="button"
+                    class="slider-dot active"
+                    data-index="0"
+                    aria-label="Cybersecurity overview"
+                    aria-selected="true"
+                  ></button>
+
+                  <button
+                    type="button"
+                    class="slider-dot"
+                    data-index="1"
+                    aria-label="Cybersecurity tools"
+                    aria-selected="false"
+                  ></button>
+                </div>
+
+                <button
+                  type="button"
+                  class="slider-arrow"
+                  data-action="next"
+                  aria-label="Next cybersecurity page"
+                >
+                  →
+                </button>
+              </div>
             </div>
           </div>
 
           <!-- ABOUT CONTROLS -->
 
-          <div class="slider-controls" data-slider-controls="about">
+          <div class="slider-controls profile-main-controls" data-slider-controls="about">
             <button
               type="button"
               class="slider-arrow"
@@ -383,7 +387,7 @@
               ←
             </button>
 
-            <div class="slider-dots" role="tablist">
+            <div class="slider-dots" role="tablist" aria-label="Profile pages">
               <button
                 type="button"
                 class="slider-dot active"
@@ -397,22 +401,6 @@
                 class="slider-dot"
                 data-index="1"
                 aria-label="Page 2"
-                aria-selected="false"
-              ></button>
-
-              <button
-                type="button"
-                class="slider-dot"
-                data-index="2"
-                aria-label="Page 3"
-                aria-selected="false"
-              ></button>
-
-              <button
-                type="button"
-                class="slider-dot"
-                data-index="3"
-                aria-label="Page 4"
                 aria-selected="false"
               ></button>
             </div>
