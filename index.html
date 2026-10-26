@@ -1,1565 +1,843 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="ru">
+  <head>
+    <meta charset="UTF-8" />
 
-<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-    <meta charset="UTF-8">
-
-    <meta
-        name="viewport"
-        content="width=device-width, initial-scale=1.0"
-    >
-
-    <meta
-        name="description"
-        content="Rootkit — developer portfolio."
-    >
+    <meta name="description" content="Rootkit — developer portfolio." />
 
     <title>Rootkit_</title>
 
-    <link
-        rel="stylesheet"
-        href="./css/style.css"
-    >
+    <link rel="stylesheet" href="./css/style.css" />
+  </head>
 
-</head>
-
-
-<body>
-
-
+  <body>
     <!-- =====================================================
          SCREEN EFFECTS
     ====================================================== -->
 
-    <div
-        class="screen-noise"
-        aria-hidden="true"
-    ></div>
+    <div class="screen-noise" aria-hidden="true"></div>
 
-    <div
-        class="screen-scanlines"
-        aria-hidden="true"
-    ></div>
-
+    <div class="screen-scanlines" aria-hidden="true"></div>
 
     <!-- =====================================================
          HEADER
     ====================================================== -->
 
     <header class="topbar">
+      <a href="#home" class="terminal-logo" aria-label="Rootkit home">
+        <span>rootkit</span>
 
-        <a
-            href="#home"
-            class="terminal-logo"
-            aria-label="Rootkit home"
-        >
+        <span class="logo-cursor"> _ </span>
+      </a>
 
-            <span>rootkit</span>
-
-            <span class="logo-cursor">
-                _
-            </span>
-
-        </a>
-
-
-        <!--
+      <!--
             5 GREEN SECTION BARS
             Home / About / Devices / Contact / Final
         -->
 
-        <nav
-            class="section-progress"
-            aria-label="Section progress"
-        >
+      <nav class="section-progress" aria-label="Section progress">
+        <a
+          href="#home"
+          class="section-progress-bar active"
+          aria-label="Home"
+        ></a>
 
-            <a
-                href="#home"
-                class="section-progress-bar active"
-                aria-label="Home"
-            ></a>
+        <a href="#about" class="section-progress-bar" aria-label="About"></a>
 
-            <a
-                href="#about"
-                class="section-progress-bar"
-                aria-label="About"
-            ></a>
+        <a
+          href="#devices"
+          class="section-progress-bar"
+          aria-label="Devices"
+        ></a>
 
-            <a
-                href="#devices"
-                class="section-progress-bar"
-                aria-label="Devices"
-            ></a>
+        <a
+          href="#contact"
+          class="section-progress-bar"
+          aria-label="Contact"
+        ></a>
 
-            <a
-                href="#contact"
-                class="section-progress-bar"
-                aria-label="Contact"
-            ></a>
-
-            <a
-                href="#final"
-                class="section-progress-bar"
-                aria-label="End"
-            ></a>
-
-        </nav>
-
+        <a href="#final" class="section-progress-bar" aria-label="End"></a>
+      </nav>
     </header>
 
-
     <main>
-
-
-        <!-- =================================================
+      <!-- =================================================
              HOME
         ================================================== -->
 
-        <section
-            id="home"
-            class="section home-section section-visible"
-        >
+      <section id="home" class="section home-section section-visible">
+        <div class="home-inner">
+          <div class="avatar-frame">
+            <span class="frame-corner frame-top-left"></span>
 
-            <div class="home-inner">
+            <span class="frame-corner frame-top-right"></span>
 
+            <span class="frame-corner frame-bottom-left"></span>
 
-                <div class="avatar-frame">
+            <span class="frame-corner frame-bottom-right"></span>
 
-                    <span
-                        class="frame-corner frame-top-left"
-                    ></span>
+            <div class="avatar-glow"></div>
 
-                    <span
-                        class="frame-corner frame-top-right"
-                    ></span>
+            <img
+              src="./images/rootkit.jpg"
+              alt="Rootkit"
+              class="avatar-image"
+              draggable="false"
+            />
+          </div>
 
-                    <span
-                        class="frame-corner frame-bottom-left"
-                    ></span>
+          <div class="record-status">
+            <span class="record-dot"></span>
 
-                    <span
-                        class="frame-corner frame-bottom-right"
-                    ></span>
+            <span> REC </span>
+          </div>
 
+          <div class="home-copy">
+            <div class="boot-label">// INITIALIZING</div>
 
-                    <div
-                        class="avatar-glow"
-                    ></div>
+            <h1 class="hero-name">rootkit</h1>
 
+            <p class="hero-description">
+              Система выглядит просто, пока не начинаешь задавать вопросы. Мне
+              интересны их устройство, границы и возможности)
+            </p>
 
-                    <img
-                        src="./images/rootkit.jpg"
-                        alt="Rootkit"
-                        class="avatar-image"
-                        draggable="false"
-                    >
+            <a href="#about" class="terminal-button">
+              <span class="button-symbol"> $ </span>
 
-                </div>
+              <span> cd about </span>
+            </a>
+          </div>
+        </div>
+      </section>
 
-
-                <div class="record-status">
-
-                    <span class="record-dot"></span>
-
-                    <span>
-                        REC
-                    </span>
-
-                </div>
-
-
-                <div class="home-copy">
-
-                    <div class="boot-label">
-                        // INITIALIZING
-                    </div>
-
-
-                    <h1 class="hero-name">
-                        rootkit
-                    </h1>
-
-
-                    <p class="hero-description">
-                        Система выглядит просто, пока не начинаешь задавать вопросы.
-                        Мне интересны их устройство, границы и возможности)
-                    </p>
-
-
-                    <a
-                        href="#about"
-                        class="terminal-button"
-                    >
-
-                        <span class="button-symbol">
-                            $
-                        </span>
-
-                        <span>
-                            cd about
-                        </span>
-
-                    </a>
-
-                </div>
-
-            </div>
-
-        </section>
-
-
-        <!-- =================================================
+      <!-- =================================================
              ABOUT
         ================================================== -->
 
-        <section
-            id="about"
-            class="section data-section"
-        >
+      <section id="about" class="section data-section">
+        <div class="section-shell">
+          <div class="section-topline">
+            <span class="section-number"> 01 </span>
 
-            <div class="section-shell">
+            <div class="topline-line"></div>
 
+            <span class="page-counter about-counter"> PAGE 1/4 </span>
+          </div>
 
-                <div class="section-topline">
+          <div class="file-heading">
+            <span class="file-dot"></span>
 
-                    <span class="section-number">
-                        01
-                    </span>
+            <span> ~ profile.json </span>
+          </div>
 
-                    <div class="topline-line"></div>
-
-                    <span class="page-counter about-counter">
-                        PAGE 1/3
-                    </span>
-
-                </div>
-
-
-                <div class="file-heading">
-
-                    <span class="file-dot"></span>
-
-                    <span>
-                        ~ profile.json
-                    </span>
-
-                </div>
-
-
-                <div class="slider-viewport">
-
-                    <div
-                        class="slider-track about-track"
-                    >
-
-
-                        <!-- =================================================
+          <div class="slider-viewport">
+            <div class="slider-track about-track">
+              <!-- =================================================
                              ABOUT PAGE 1
                         ================================================== -->
 
-                        <article
-                            class="slider-page about-page is-active"
-                        >
+              <article class="slider-page about-page is-active">
+                <div class="terminal-grid about-grid">
+                  <div class="terminal-card">
+                    <span class="card-label"> NICKNAME </span>
 
-                            <div class="terminal-grid about-grid">
+                    <strong> rootkit / руткит </strong>
+                  </div>
 
+                  <div class="terminal-card">
+                    <span class="card-label"> BIRTHDAY </span>
 
-                                <div class="terminal-card">
+                    <strong> 02 февраля </strong>
+                  </div>
 
-                                    <span class="card-label">
-                                        NICKNAME
-                                    </span>
+                  <div class="terminal-card">
+                    <span class="card-label"> ROLE </span>
 
-                                    <strong>
-                                        rootkit / руткит
-                                    </strong>
+                    <strong> low-level &amp; Red Team </strong>
+                  </div>
 
-                                </div>
+                  <div class="terminal-card">
+                    <span class="card-label"> EXPERIENCE </span>
 
+                    <strong> ~4 года </strong>
+                  </div>
 
-                                <div class="terminal-card">
+                  <div class="terminal-card">
+                    <span class="card-label"> LANGUAGES </span>
 
-                                    <span class="card-label">
-                                        BIRTHDAY
-                                    </span>
+                    <strong>
+                      C, C++, Python,<br />
+                      JavaScript, Lua
+                    </strong>
+                  </div>
 
-                                    <strong>
-                                        02 февраля
-                                    </strong>
+                  <div class="terminal-card timezone-card">
+                    <span class="card-label"> TIMEZONE </span>
 
-                                </div>
+                    <strong id="moscow-time" class="digital-time">
+                      00:00:00
+                    </strong>
 
+                    <small> МСК · UTC+3 </small>
+                  </div>
+                </div>
+              </article>
 
-                                <div class="terminal-card">
-
-                                    <span class="card-label">
-                                        ROLE
-                                    </span>
-
-                                    <strong>
-                                        low-level dev
-                                    </strong>
-
-                                </div>
-
-
-                                <div class="terminal-card">
-
-                                    <span class="card-label">
-                                        EXPERIENCE
-                                    </span>
-
-                                    <strong>
-                                        ~4 года
-                                    </strong>
-
-                                </div>
-
-
-                                <div class="terminal-card">
-
-                                    <span class="card-label">
-                                        LANGUAGES
-                                    </span>
-
-                                    <strong>
-                                        арабский,<br>
-                                        английский
-                                    </strong>
-
-                                </div>
-
-
-                                <div class="terminal-card timezone-card">
-
-                                    <span class="card-label">
-                                        TIMEZONE
-                                    </span>
-
-                                    <strong
-                                        id="moscow-time"
-                                        class="digital-time"
-                                    >
-                                        00:00:00
-                                    </strong>
-
-                                    <small>
-                                        МСК · UTC+3
-                                    </small>
-
-                                </div>
-
-                            </div>
-
-                        </article>
-
-
-                        <!-- =================================================
-                             ABOUT PAGE 2 — LANGUAGES
+              <!-- =================================================
+                             ABOUT PAGE 2 — PROFILE CATEGORIES
                         ================================================== -->
 
-                        <article
-                            class="slider-page about-page"
+              <article class="slider-page about-page">
+                <div class="secondary-page-content category-page">
+                  <div class="secondary-title">
+                    <span> // выбери направление </span>
+                  </div>
+
+                  <div class="terminal-panel">
+                    <div class="panel-heading">PROFILE SECTIONS</div>
+
+                    <div class="profile-category-list">
+                      <button
+                        type="button"
+                        class="profile-category is-available"
+                        data-slide-to="2"
+                      >
+                        <span class="category-index">01</span>
+                        <span class="category-name">Cybersecurity</span>
+                        <span class="category-status">ОТКРЫТЬ →</span>
+                      </button>
+
+                      <button type="button" class="profile-category" disabled>
+                        <span class="category-index">02</span>
+                        <span class="category-name">Programming</span>
+                        <span class="category-status">СКОРО</span>
+                      </button>
+
+                      <button type="button" class="profile-category" disabled>
+                        <span class="category-index">03</span>
+                        <span class="category-name"
+                          >Installation &amp; Design</span
                         >
+                        <span class="category-status">СКОРО</span>
+                      </button>
+                    </div>
+                  </div>
+                </div>
+              </article>
 
-                            <div class="secondary-page-content">
-
-
-                                <div class="secondary-title">
-
-                                    <span>
-                                        // languages
-                                    </span>
-
-                                </div>
-
-
-                                <div class="terminal-panel">
-
-                                    <div class="panel-heading">
-                                        LANGUAGES
-                                    </div>
-
-
-                                    <div class="language-list">
-
-
-                                        <div class="language-row">
-
-                                            <span
-                                                class="row-icon language-icon"
-                                                aria-hidden="true"
-                                            >⚙️</span>
-
-                                            <span>
-                                                C
-                                            </span>
-
-                                        </div>
-
-
-                                        <div class="language-row">
-
-                                            <span
-                                                class="row-icon language-icon"
-                                                aria-hidden="true"
-                                            >⚙️</span>
-
-                                            <span>
-                                                C++
-                                            </span>
-
-                                        </div>
-
-
-                                        <div class="language-row">
-
-                                            <span
-                                                class="row-icon language-icon"
-                                                aria-hidden="true"
-                                            >⚙️</span>
-
-                                            <span>
-                                                JavaScript
-                                            </span>
-
-                                        </div>
-
-
-                                        <div class="language-row">
-
-                                            <span
-                                                class="row-icon language-icon"
-                                                aria-hidden="true"
-                                            >⚙️</span>
-
-                                            <span>
-                                                Python
-                                            </span>
-
-                                        </div>
-
-
-                                        <div class="language-row">
-
-                                            <span
-                                                class="row-icon language-icon"
-                                                aria-hidden="true"
-                                            >⚙️</span>
-
-                                            <span>
-                                                Lua
-                                            </span>
-
-                                        </div>
-
-
-                                    </div>
-
-                                </div>
-
-
-                                <div class="favorite-panel">
-
-                                    <span>
-                                        Самый любимый
-                                    </span>
-
-                                    <strong>
-                                        C++
-                                    </strong>
-
-                                </div>
-
-
-                            </div>
-
-                        </article>
-
-
-                        <!-- =================================================
-                             ABOUT PAGE 3 — TOOLS
+              <!-- =================================================
+                             ABOUT PAGE 3 — CYBERSECURITY
                         ================================================== -->
 
-                        <article
-                            class="slider-page about-page"
-                        >
+              <article class="slider-page about-page">
+                <div class="secondary-page-content cyber-page">
+                  <div class="secondary-title">
+                    <span> // cybersecurity · red team </span>
+                  </div>
 
-                            <div class="secondary-page-content">
+                  <div class="terminal-panel cyber-panel">
+                    <div class="panel-heading">НАПРАВЛЕНИЕ</div>
 
+                    <div class="cyber-copy">
+                      <p>
+                        Занимаюсь пентестингом, в первую очередь — Red Team:
+                        изучаю, как моделировать действия атакующего, чтобы
+                        находить слабые места и помогать их устранять.
+                      </p>
 
-                                <div class="secondary-title">
+                      <p>
+                        Интересны веб-, сетевой и другие направления
+                        тестирования на проникновение. Больше всего в Red Team
+                        нравится ощущение, будто ты настоящий хакер, и
+                        возможность исследовать систему с разных сторон, лучше
+                        понимать ее устройство, границы и возможности.
+                      </p>
 
-                                    <span>
-                                        // tools
-                                    </span>
+                      <p>
+                        Также интересуюсь анализом вредоносного ПО,
+                        социально-инженерными рисками и устойчивостью систем к
+                        DoS/DDoS.
+                      </p>
 
-                                </div>
-
-
-                                <div
-                                    class="terminal-panel tools-panel"
-                                >
-
-                                    <div class="panel-heading">
-                                        TOOLS
-                                    </div>
-
-
-                                    <div class="tools-list">
-
-
-                                        <div class="tool-row">
-
-                                            <img
-                                                src="./images/wrench.png"
-                                                alt=""
-                                                class="tool-icon"
-                                                aria-hidden="true"
-                                                draggable="false"
-                                            >
-
-                                            <span>
-                                                HTML
-                                            </span>
-
-                                        </div>
-
-
-                                        <div class="tool-row">
-
-                                            <img
-                                                src="./images/wrench.png"
-                                                alt=""
-                                                class="tool-icon"
-                                                aria-hidden="true"
-                                                draggable="false"
-                                            >
-
-                                            <span>
-                                                CSS
-                                            </span>
-
-                                        </div>
-
-
-                                        <div class="tool-row">
-
-                                            <img
-                                                src="./images/wrench.png"
-                                                alt=""
-                                                class="tool-icon"
-                                                aria-hidden="true"
-                                                draggable="false"
-                                            >
-
-                                            <span>
-                                                Git
-                                            </span>
-
-                                        </div>
-
-
-                                        <div class="tool-row">
-
-                                            <img
-                                                src="./images/wrench.png"
-                                                alt=""
-                                                class="tool-icon"
-                                                aria-hidden="true"
-                                                draggable="false"
-                                            >
-
-                                            <span>
-                                                Bash
-                                            </span>
-
-                                        </div>
-
-
-                                        <div class="tool-row">
-
-                                            <img
-                                                src="./images/wrench.png"
-                                                alt=""
-                                                class="tool-icon"
-                                                aria-hidden="true"
-                                                draggable="false"
-                                            >
-
-                                            <span>
-                                                PowerShell
-                                            </span>
-
-                                        </div>
-
-
-                                        <div class="tool-row">
-
-                                            <img
-                                                src="./images/wrench.png"
-                                                alt=""
-                                                class="tool-icon"
-                                                aria-hidden="true"
-                                                draggable="false"
-                                            >
-
-                                            <span>
-                                                raylib for C
-                                            </span>
-
-                                        </div>
-
-
-                                        <div class="tool-row">
-
-                                            <img
-                                                src="./images/wrench.png"
-                                                alt=""
-                                                class="tool-icon"
-                                                aria-hidden="true"
-                                                draggable="false"
-                                            >
-
-                                            <span>
-                                                VSDC
-                                            </span>
-
-                                            <span class="tool-category">
-                                                Монтаж
-                                            </span>
-
-                                        </div>
-
-
-                                        <div class="tool-row">
-
-                                            <img
-                                                src="./images/wrench.png"
-                                                alt=""
-                                                class="tool-icon"
-                                                aria-hidden="true"
-                                                draggable="false"
-                                            >
-
-                                            <span>
-                                                CapCut
-                                            </span>
-
-                                            <span class="tool-category">
-                                                Монтаж
-                                            </span>
-
-                                        </div>
-
-
-                                    </div>
-
-                                </div>
-
-                            </div>
-
-                        </article>
-
-
+                      <p class="cyber-safety-note">
+                        Практикую только в лабораториях и в рамках тестов, на
+                        которые получено разрешение.
+                      </p>
                     </div>
 
-                </div>
-
-
-                <!-- ABOUT CONTROLS -->
-
-                <div
-                    class="slider-controls"
-                    data-slider-controls="about"
-                >
-
                     <button
-                        type="button"
-                        class="slider-arrow"
-                        data-action="prev"
-                        aria-label="Previous page"
+                      type="button"
+                      class="terminal-button cyber-tools-button"
+                      data-slide-to="3"
                     >
-                        ←
+                      <span class="button-symbol">$</span>
+                      <span>Мои инструменты</span>
                     </button>
+                  </div>
+                </div>
+              </article>
 
+              <!-- =================================================
+                             ABOUT PAGE 4 — CYBERSECURITY TOOLS
+                        ================================================== -->
 
-                    <div
-                        class="slider-dots"
-                        role="tablist"
-                    >
+              <article class="slider-page about-page">
+                <div class="secondary-page-content cyber-tools-page">
+                  <div class="secondary-title">
+                    <span>// инструменты</span>
+                  </div>
 
-                        <button
-                            type="button"
-                            class="slider-dot active"
-                            data-index="0"
-                            aria-label="Page 1"
-                            aria-selected="true"
-                        ></button>
+                  <div class="terminal-panel tools-panel">
+                    <div class="panel-heading">CYBERSECURITY TOOLKIT</div>
 
+                    <div class="tools-list">
+                      <div class="tool-row">
+                        <img
+                          src="./images/wrench.png"
+                          alt=""
+                          class="tool-icon"
+                          aria-hidden="true"
+                          draggable="false"
+                        />
+                        <span>Burp Suite</span>
+                      </div>
 
-                        <button
-                            type="button"
-                            class="slider-dot"
-                            data-index="1"
-                            aria-label="Page 2"
-                            aria-selected="false"
-                        ></button>
+                      <div class="tool-row">
+                        <img
+                          src="./images/wrench.png"
+                          alt=""
+                          class="tool-icon"
+                          aria-hidden="true"
+                          draggable="false"
+                        />
+                        <span>Wireshark</span>
+                      </div>
 
+                      <div class="tool-row">
+                        <img
+                          src="./images/wrench.png"
+                          alt=""
+                          class="tool-icon"
+                          aria-hidden="true"
+                          draggable="false"
+                        />
+                        <span>Nmap</span>
+                      </div>
 
-                        <button
-                            type="button"
-                            class="slider-dot"
-                            data-index="2"
-                            aria-label="Page 3"
-                            aria-selected="false"
-                        ></button>
+                      <div class="tool-row">
+                        <img
+                          src="./images/wrench.png"
+                          alt=""
+                          class="tool-icon"
+                          aria-hidden="true"
+                          draggable="false"
+                        />
+                        <span>Metasploit Framework</span>
+                      </div>
 
+                      <div class="tool-row">
+                        <img
+                          src="./images/wrench.png"
+                          alt=""
+                          class="tool-icon"
+                          aria-hidden="true"
+                          draggable="false"
+                        />
+                        <span>GDB</span>
+                      </div>
+
+                      <div class="tool-row">
+                        <img
+                          src="./images/wrench.png"
+                          alt=""
+                          class="tool-icon"
+                          aria-hidden="true"
+                          draggable="false"
+                        />
+                        <span>Ghidra</span>
+                      </div>
                     </div>
+                  </div>
 
-
-                    <button
-                        type="button"
-                        class="slider-arrow"
-                        data-action="next"
-                        aria-label="Next page"
-                    >
-                        →
-                    </button>
-
+                  <div class="favorite-panel">
+                    <span>Любимый инструмент</span>
+                    <strong>Burp Suite</strong>
+                  </div>
                 </div>
+              </article>
+            </div>
+          </div>
 
+          <!-- ABOUT CONTROLS -->
 
+          <div class="slider-controls" data-slider-controls="about">
+            <button
+              type="button"
+              class="slider-arrow"
+              data-action="prev"
+              aria-label="Previous page"
+            >
+              ←
+            </button>
+
+            <div class="slider-dots" role="tablist">
+              <button
+                type="button"
+                class="slider-dot active"
+                data-index="0"
+                aria-label="Page 1"
+                aria-selected="true"
+              ></button>
+
+              <button
+                type="button"
+                class="slider-dot"
+                data-index="1"
+                aria-label="Page 2"
+                aria-selected="false"
+              ></button>
+
+              <button
+                type="button"
+                class="slider-dot"
+                data-index="2"
+                aria-label="Page 3"
+                aria-selected="false"
+              ></button>
+
+              <button
+                type="button"
+                class="slider-dot"
+                data-index="3"
+                aria-label="Page 4"
+                aria-selected="false"
+              ></button>
             </div>
 
-        </section>
+            <button
+              type="button"
+              class="slider-arrow"
+              data-action="next"
+              aria-label="Next page"
+            >
+              →
+            </button>
+          </div>
+        </div>
+      </section>
 
-
-        <!-- =================================================
+      <!-- =================================================
              DEVICES
         ================================================== -->
 
-        <section
-            id="devices"
-            class="section data-section"
-        >
+      <section id="devices" class="section data-section">
+        <div class="section-shell">
+          <div class="section-topline">
+            <span class="section-number"> 02 </span>
 
-            <div class="section-shell">
+            <div class="topline-line"></div>
 
+            <span class="page-counter devices-counter"> PAGE 1/2 </span>
+          </div>
 
-                <div class="section-topline">
+          <div class="file-heading">
+            <span class="file-dot"></span>
 
-                    <span class="section-number">
-                        02
-                    </span>
+            <span> ~ devices.json </span>
+          </div>
 
-                    <div class="topline-line"></div>
+          <div class="slider-viewport">
+            <div class="slider-track devices-track">
+              <!-- PC -->
 
-                    <span class="page-counter devices-counter">
-                        PAGE 1/2
-                    </span>
+              <article class="slider-page device-page is-active">
+                <div class="device-content">
+                  <div class="secondary-title">
+                    <span> // main workstation </span>
+                  </div>
 
-                </div>
+                  <h2>PC</h2>
 
+                  <div class="device-panel">
+                    <div class="device-row">
+                      <span> CPU </span>
 
-                <div class="file-heading">
-
-                    <span class="file-dot"></span>
-
-                    <span>
-                        ~ devices.json
-                    </span>
-
-                </div>
-
-
-                <div class="slider-viewport">
-
-                    <div
-                        class="slider-track devices-track"
-                    >
-
-
-                        <!-- PC -->
-
-                        <article
-                            class="slider-page device-page is-active"
-                        >
-
-                            <div class="device-content">
-
-
-                                <div class="secondary-title">
-
-                                    <span>
-                                        // main workstation
-                                    </span>
-
-                                </div>
-
-
-                                <h2>
-                                    PC
-                                </h2>
-
-
-                                <div class="device-panel">
-
-
-                                    <div class="device-row">
-
-                                        <span>
-                                            CPU
-                                        </span>
-
-                                        <strong>
-                                            Intel i5-12400F
-                                        </strong>
-
-                                    </div>
-
-
-                                    <div class="device-row">
-
-                                        <span>
-                                            GPU
-                                        </span>
-
-                                        <strong>
-                                            RTX 3060 12GB
-                                        </strong>
-
-                                    </div>
-
-
-                                    <div class="device-row">
-
-                                        <span>
-                                            RAM / DISK
-                                        </span>
-
-                                        <strong>
-                                            32GB / 2TB SSD
-                                        </strong>
-
-                                    </div>
-
-
-                                    <div class="device-row">
-
-                                        <span>
-                                            OS
-                                        </span>
-
-                                        <strong>
-                                            Fedora + GNOME
-                                        </strong>
-
-                                    </div>
-
-
-                                </div>
-
-                            </div>
-
-                        </article>
-
-
-                        <!-- LAPTOP -->
-
-                        <article
-                            class="slider-page device-page"
-                        >
-
-                            <div class="device-content">
-
-
-                                <div class="secondary-title">
-
-                                    <span>
-                                        // portable workstation
-                                    </span>
-
-                                </div>
-
-
-                                <h2>
-                                    Laptop
-                                </h2>
-
-
-                                <div class="device-panel">
-
-
-                                    <div class="device-row">
-
-                                        <span>
-                                            CPU
-                                        </span>
-
-                                        <strong>
-                                            Intel i7-4810MQ
-                                        </strong>
-
-                                    </div>
-
-
-                                    <div class="device-row">
-
-                                        <span>
-                                            GPU
-                                        </span>
-
-                                        <strong>
-                                            Intel HD Graphics 4600
-                                        </strong>
-
-                                    </div>
-
-
-                                    <div class="device-row">
-
-                                        <span>
-                                            RAM / DISK
-                                        </span>
-
-                                        <strong>
-                                            8GB / 1TB HDD
-                                        </strong>
-
-                                    </div>
-
-
-                                    <div class="device-row">
-
-                                        <span>
-                                            OS
-                                        </span>
-
-                                        <strong>
-                                            Linux Mint + XFCE
-                                        </strong>
-
-                                    </div>
-
-
-                                </div>
-
-                            </div>
-
-                        </article>
-
-
+                      <strong> Intel i5-12400F </strong>
                     </div>
 
-                </div>
+                    <div class="device-row">
+                      <span> GPU </span>
 
-
-                <!-- DEVICE CONTROLS -->
-
-                <div
-                    class="slider-controls"
-                    data-slider-controls="devices"
-                >
-
-                    <button
-                        type="button"
-                        class="slider-arrow"
-                        data-action="prev"
-                        aria-label="Previous device"
-                    >
-                        ←
-                    </button>
-
-
-                    <div
-                        class="slider-dots"
-                        role="tablist"
-                    >
-
-                        <button
-                            type="button"
-                            class="slider-dot active"
-                            data-index="0"
-                            aria-label="PC"
-                            aria-selected="true"
-                        ></button>
-
-
-                        <button
-                            type="button"
-                            class="slider-dot"
-                            data-index="1"
-                            aria-label="Laptop"
-                            aria-selected="false"
-                        ></button>
-
+                      <strong> RTX 3060 12GB </strong>
                     </div>
 
+                    <div class="device-row">
+                      <span> RAM / DISK </span>
 
-                    <button
-                        type="button"
-                        class="slider-arrow"
-                        data-action="next"
-                        aria-label="Next device"
-                    >
-                        →
-                    </button>
+                      <strong> 32GB / 2TB SSD </strong>
+                    </div>
 
+                    <div class="device-row">
+                      <span> OS </span>
+
+                      <strong> Fedora + GNOME </strong>
+                    </div>
+                  </div>
                 </div>
+              </article>
 
+              <!-- LAPTOP -->
 
+              <article class="slider-page device-page">
+                <div class="device-content">
+                  <div class="secondary-title">
+                    <span> // portable workstation </span>
+                  </div>
+
+                  <h2>Laptop</h2>
+
+                  <div class="device-panel">
+                    <div class="device-row">
+                      <span> CPU </span>
+
+                      <strong> Intel i7-4810MQ </strong>
+                    </div>
+
+                    <div class="device-row">
+                      <span> GPU </span>
+
+                      <strong> Intel HD Graphics 4600 </strong>
+                    </div>
+
+                    <div class="device-row">
+                      <span> RAM / DISK </span>
+
+                      <strong> 8GB / 1TB HDD </strong>
+                    </div>
+
+                    <div class="device-row">
+                      <span> OS </span>
+
+                      <strong> Linux Mint + XFCE </strong>
+                    </div>
+                  </div>
+                </div>
+              </article>
+            </div>
+          </div>
+
+          <!-- DEVICE CONTROLS -->
+
+          <div class="slider-controls" data-slider-controls="devices">
+            <button
+              type="button"
+              class="slider-arrow"
+              data-action="prev"
+              aria-label="Previous device"
+            >
+              ←
+            </button>
+
+            <div class="slider-dots" role="tablist">
+              <button
+                type="button"
+                class="slider-dot active"
+                data-index="0"
+                aria-label="PC"
+                aria-selected="true"
+              ></button>
+
+              <button
+                type="button"
+                class="slider-dot"
+                data-index="1"
+                aria-label="Laptop"
+                aria-selected="false"
+              ></button>
             </div>
 
-        </section>
+            <button
+              type="button"
+              class="slider-arrow"
+              data-action="next"
+              aria-label="Next device"
+            >
+              →
+            </button>
+          </div>
+        </div>
+      </section>
 
-
-        <!-- =================================================
+      <!-- =================================================
              CONTACT + CHANNELS
         ================================================== -->
 
-        <section
-            id="contact"
-            class="section data-section"
-        >
+      <section id="contact" class="section data-section">
+        <div class="section-shell">
+          <div class="section-topline">
+            <span class="section-number"> 03 </span>
 
-            <div class="section-shell">
+            <div class="topline-line"></div>
 
+            <span class="page-counter contact-counter"> PAGE 1/2 </span>
+          </div>
 
-                <div class="section-topline">
+          <div class="file-heading">
+            <span class="file-dot"></span>
 
-                    <span class="section-number">
-                        03
-                    </span>
+            <span> ~ contact.json </span>
+          </div>
 
-                    <div class="topline-line"></div>
+          <div class="slider-viewport">
+            <div class="slider-track contact-track">
+              <!-- CONTACT -->
 
-                    <span class="page-counter contact-counter">
-                        PAGE 1/2
-                    </span>
+              <article class="slider-page contact-page is-active">
+                <div class="contact-content">
+                  <div class="secondary-title">
+                    <span> // contacts </span>
+                  </div>
 
-                </div>
+                  <h2>Контакты</h2>
 
-
-                <div class="file-heading">
-
-                    <span class="file-dot"></span>
-
-                    <span>
-                        ~ contact.json
-                    </span>
-
-                </div>
-
-
-                <div class="slider-viewport">
-
-                    <div
-                        class="slider-track contact-track"
+                  <div class="contact-panel">
+                    <a
+                      href="https://t.me/byvscode"
+                      class="contact-row"
+                      target="_blank"
+                      rel="noopener noreferrer"
                     >
-
-
-                        <!-- CONTACT -->
-
-                        <article
-                            class="slider-page contact-page is-active"
-                        >
-
-                            <div class="contact-content">
-
-
-                                <div class="secondary-title">
-
-                                    <span>
-                                        // contacts
-                                    </span>
-
-                                </div>
-
-
-                                <h2>
-                                    Контакты
-                                </h2>
-
-
-                                <div class="contact-panel">
-
-
-                                    <a
-                                        href="https://t.me/byvscode"
-                                        class="contact-row"
-                                        target="_blank"
-                                        rel="noopener noreferrer"
-                                    >
-
-                                        <span>
-                                            TELEGRAM
-                                        </span>
-
-                                        <strong>
-                                            @byvscode
-                                        </strong>
-
-                                    </a>
-
-
-                                    <a
-                                        href="https://github.com/wishixcoding"
-                                        class="contact-row"
-                                        target="_blank"
-                                        rel="noopener noreferrer"
-                                    >
-
-                                        <span>
-                                            GITHUB
-                                        </span>
-
-                                        <strong>
-                                            github.com/wishixcoding
-                                        </strong>
-
-                                    </a>
-
-
-                                    <a
-                                        href="https://www.tiktok.com/@bywishi"
-                                        class="contact-row"
-                                        target="_blank"
-                                        rel="noopener noreferrer"
-                                    >
-
-                                        <span>
-                                            TIKTOK
-                                        </span>
-
-                                        <strong>
-                                            @bywishi
-                                        </strong>
-
-                                    </a>
-
-
-                                    <a
-                                        href="mailto:wishixcoding@gmail.com"
-                                        class="contact-row"
-                                    >
-
-                                        <span>
-                                            EMAIL
-                                        </span>
-
-                                        <strong>
-                                            wishixcoding@gmail.com
-                                        </strong>
-
-                                    </a>
-
-
-                                </div>
-
-                            </div>
-
-                        </article>
-
-
-                        <!-- CHANNELS -->
-
-                        <article
-                            class="slider-page contact-page"
-                        >
-
-                            <div class="contact-content">
-
-
-                                <div class="secondary-title">
-
-                                    <span>
-                                        // channels
-                                    </span>
-
-                                </div>
-
-
-                                <h2>
-                                    Мои каналы
-                                </h2>
-
-
-                                <div class="contact-panel">
-
-
-                                    <a
-                                        href="https://t.me/Wishitg"
-                                        class="contact-row"
-                                        target="_blank"
-                                        rel="noopener noreferrer"
-                                    >
-
-                                        <span>
-                                            CHANNEL
-                                        </span>
-
-                                        <strong>
-                                            Мой путь в IT
-                                        </strong>
-
-                                    </a>
-
-
-                                    <a
-                                        href="https://t.me/fAYSONdev"
-                                        class="contact-row"
-                                        target="_blank"
-                                        rel="noopener noreferrer"
-                                    >
-
-                                        <span>
-                                            CHANNEL
-                                        </span>
-
-                                        <strong>
-                                            Путь моего кента
-                                        </strong>
-
-                                    </a>
-
-
-                                    <a
-                                        href="https://t.me/teamwishes"
-                                        class="contact-row"
-                                        target="_blank"
-                                        rel="noopener noreferrer"
-                                    >
-
-                                        <span>
-                                            COMMUNITY
-                                        </span>
-
-                                        <strong>
-                                            Сообщество Программистов
-                                        </strong>
-
-                                    </a>
-
-
-                                </div>
-
-                            </div>
-
-                        </article>
-
-
-                    </div>
-
+                      <span> TELEGRAM </span>
+
+                      <strong> @byvscode </strong>
+                    </a>
+
+                    <a
+                      href="https://github.com/wishixcoding"
+                      class="contact-row"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    >
+                      <span> GITHUB </span>
+
+                      <strong> github.com/wishixcoding </strong>
+                    </a>
+
+                    <a
+                      href="https://www.tiktok.com/@bywishi"
+                      class="contact-row"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    >
+                      <span> TIKTOK </span>
+
+                      <strong> @bywishi </strong>
+                    </a>
+
+                    <a href="mailto:wishixcoding@gmail.com" class="contact-row">
+                      <span> EMAIL </span>
+
+                      <strong> wishixcoding@gmail.com </strong>
+                    </a>
+                  </div>
                 </div>
+              </article>
 
+              <!-- CHANNELS -->
 
-                <!-- CONTACT CONTROLS -->
+              <article class="slider-page contact-page">
+                <div class="contact-content">
+                  <div class="secondary-title">
+                    <span> // channels </span>
+                  </div>
 
-                <div
-                    class="slider-controls"
-                    data-slider-controls="contact"
-                >
+                  <h2>Мои каналы</h2>
 
-                    <button
-                        type="button"
-                        class="slider-arrow"
-                        data-action="prev"
-                        aria-label="Previous page"
+                  <div class="contact-panel">
+                    <a
+                      href="https://t.me/Wishitg"
+                      class="contact-row"
+                      target="_blank"
+                      rel="noopener noreferrer"
                     >
-                        ←
-                    </button>
+                      <span> CHANNEL </span>
 
+                      <strong> Мой путь в IT </strong>
+                    </a>
 
-                    <div
-                        class="slider-dots"
-                        role="tablist"
+                    <a
+                      href="https://t.me/fAYSONdev"
+                      class="contact-row"
+                      target="_blank"
+                      rel="noopener noreferrer"
                     >
+                      <span> CHANNEL </span>
 
-                        <button
-                            type="button"
-                            class="slider-dot active"
-                            data-index="0"
-                            aria-label="Contacts"
-                            aria-selected="true"
-                        ></button>
+                      <strong> Путь моего кента </strong>
+                    </a>
 
-
-                        <button
-                            type="button"
-                            class="slider-dot"
-                            data-index="1"
-                            aria-label="Channels"
-                            aria-selected="false"
-                        ></button>
-
-                    </div>
-
-
-                    <button
-                        type="button"
-                        class="slider-arrow"
-                        data-action="next"
-                        aria-label="Next page"
+                    <a
+                      href="https://t.me/teamwishes"
+                      class="contact-row"
+                      target="_blank"
+                      rel="noopener noreferrer"
                     >
-                        →
-                    </button>
+                      <span> COMMUNITY </span>
 
+                      <strong> Сообщество Программистов </strong>
+                    </a>
+                  </div>
                 </div>
+              </article>
+            </div>
+          </div>
 
+          <!-- CONTACT CONTROLS -->
 
+          <div class="slider-controls" data-slider-controls="contact">
+            <button
+              type="button"
+              class="slider-arrow"
+              data-action="prev"
+              aria-label="Previous page"
+            >
+              ←
+            </button>
+
+            <div class="slider-dots" role="tablist">
+              <button
+                type="button"
+                class="slider-dot active"
+                data-index="0"
+                aria-label="Contacts"
+                aria-selected="true"
+              ></button>
+
+              <button
+                type="button"
+                class="slider-dot"
+                data-index="1"
+                aria-label="Channels"
+                aria-selected="false"
+              ></button>
             </div>
 
-        </section>
+            <button
+              type="button"
+              class="slider-arrow"
+              data-action="next"
+              aria-label="Next page"
+            >
+              →
+            </button>
+          </div>
+        </div>
+      </section>
 
-
-        <!-- =================================================
+      <!-- =================================================
              FINAL
         ================================================== -->
 
-        <section
-            id="final"
-            class="section final-section"
-        >
+      <section id="final" class="section final-section">
+        <div class="final-content">
+          <!-- BACK TO TOP -->
 
+          <a href="#home" class="final-up-button" aria-label="Back to top">
+            <svg viewBox="0 0 24 24" aria-hidden="true">
+              <path d="M12 19V5"></path>
 
-            <div class="final-content">
+              <path d="M6 11l6-6 6 6"></path>
+            </svg>
+          </a>
 
+          <h2>Rootkit</h2>
 
-                <!-- BACK TO TOP -->
+          <p class="final-copy">© 2026 Rootkit</p>
 
-                <a
-                    href="#home"
-                    class="final-up-button"
-                    aria-label="Back to top"
-                >
+          <nav class="final-menu" aria-label="Final navigation">
+            <!-- INTRO -->
 
-                    <svg
-                        viewBox="0 0 24 24"
-                        aria-hidden="true"
-                    >
+            <a href="#home" class="final-menu-button">
+              <span class="final-menu-icon">
+                <svg viewBox="0 0 24 24" aria-hidden="true">
+                  <path d="M4 11l8-7 8 7"></path>
 
-                        <path
-                            d="M12 19V5"
-                        ></path>
+                  <path d="M6 10v9h12v-9"></path>
 
-                        <path
-                            d="M6 11l6-6 6 6"
-                        ></path>
+                  <path d="M10 19v-5h4v5"></path>
+                </svg>
+              </span>
 
-                    </svg>
-
-                </a>
-
-
-                <h2>
-                    Rootkit
-                </h2>
-
-
-                <p class="final-copy">
-                    © 2026 Rootkit
-                </p>
-
-
-                <nav
-                    class="final-menu"
-                    aria-label="Final navigation"
-                >
-
-
-                    <!-- INTRO -->
-
-                    <a
-                        href="#home"
-                        class="final-menu-button"
-                    >
-
-                        <span class="final-menu-icon">
-
-                            <svg
-                                viewBox="0 0 24 24"
-                                aria-hidden="true"
-                            >
-
-                                <path
-                                    d="M4 11l8-7 8 7"
-                                ></path>
-
-                                <path
-                                    d="M6 10v9h12v-9"
-                                ></path>
-
-                                <path
-                                    d="M10 19v-5h4v5"
-                                ></path>
-
-                            </svg>
-
-                        </span>
-
-                        <span>
-                            Intro
-                        </span>
-
-                    </a>
-
-
-                    <!-- CONTACT -->
-
-                    <a
-                        href="#contact"
-                        class="final-menu-button"
-                    >
-
-                        <span class="final-menu-icon">
-
-                            <svg
-                                viewBox="0 0 24 24"
-                                aria-hidden="true"
-                            >
-
-                                <path
-                                    d="M4 5h16v11H8l-4 3V5z"
-                                ></path>
-
-                                <path
-                                    d="M8 9h8"
-                                ></path>
-
-                                <path
-                                    d="M8 12h5"
-                                ></path>
-
-                            </svg>
-
-                        </span>
-
-                        <span>
-                            Contact
-                        </span>
-
-                    </a>
-
-
-                    <!-- ABOUT -->
-
-                    <a
-                        href="#about"
-                        class="final-menu-button"
-                    >
-
-                        <span class="final-menu-icon">
-
-                            <svg
-                                viewBox="0 0 24 24"
-                                aria-hidden="true"
-                            >
-
-                                <circle
-                                    cx="12"
-                                    cy="8"
-                                    r="3"
-                                ></circle>
-
-                                <path
-                                    d="M5 20c0-3.2 2.7-5 7-5s7 1.8 7 5"
-                                ></path>
-
-                            </svg>
-
-                        </span>
-
-                        <span>
-                            About
-                        </span>
-
-                    </a>
-
-
-                    <!-- DEVICES -->
-
-                    <a
-                        href="#devices"
-                        class="final-menu-button"
-                    >
-
-                        <span class="final-menu-icon">
-
-                            <svg
-                                viewBox="0 0 24 24"
-                                aria-hidden="true"
-                            >
-
-                                <rect
-                                    x="5"
-                                    y="6"
-                                    width="14"
-                                    height="12"
-                                    rx="2"
-                                ></rect>
-
-                                <path
-                                    d="M9 3h6v3H9z"
-                                ></path>
-
-                                <path
-                                    d="M9 19v2h6v-2"
-                                ></path>
-
-                            </svg>
-
-                        </span>
-
-                        <span>
-                            Devices
-                        </span>
-
-                    </a>
-
-
-                </nav>
-
-            </div>
-
-
-            <a
-                href="#home"
-                class="final-terminal-badge"
-                aria-label="Back to home"
-            >
-                <>
+              <span> Intro </span>
             </a>
 
+            <!-- CONTACT -->
 
-        </section>
+            <a href="#contact" class="final-menu-button">
+              <span class="final-menu-icon">
+                <svg viewBox="0 0 24 24" aria-hidden="true">
+                  <path d="M4 5h16v11H8l-4 3V5z"></path>
 
+                  <path d="M8 9h8"></path>
+
+                  <path d="M8 12h5"></path>
+                </svg>
+              </span>
+
+              <span> Contact </span>
+            </a>
+
+            <!-- ABOUT -->
+
+            <a href="#about" class="final-menu-button">
+              <span class="final-menu-icon">
+                <svg viewBox="0 0 24 24" aria-hidden="true">
+                  <circle cx="12" cy="8" r="3"></circle>
+
+                  <path d="M5 20c0-3.2 2.7-5 7-5s7 1.8 7 5"></path>
+                </svg>
+              </span>
+
+              <span> About </span>
+            </a>
+
+            <!-- DEVICES -->
+
+            <a href="#devices" class="final-menu-button">
+              <span class="final-menu-icon">
+                <svg viewBox="0 0 24 24" aria-hidden="true">
+                  <rect x="5" y="6" width="14" height="12" rx="2"></rect>
+
+                  <path d="M9 3h6v3H9z"></path>
+
+                  <path d="M9 19v2h6v-2"></path>
+                </svg>
+              </span>
+
+              <span> Devices </span>
+            </a>
+          </nav>
+        </div>
+
+        <a href="#home" class="final-terminal-badge" aria-label="Back to home">
+          <>
+        </a>
+      </section>
     </main>
-
 
     <!-- =====================================================
          FOOTER
     ====================================================== -->
 
     <footer class="footer">
+      <div class="footer-line">rootkit_</div>
 
-        <div class="footer-line">
-            rootkit_
-        </div>
-
-        <p>
-            © 2026 Rootkit
-        </p>
-
+      <p>© 2026 Rootkit</p>
     </footer>
 
-
-    <script
-        src="./js/script.js"
-        defer
-    ></script>
-
-</body>
-
+    <script src="./js/script.js" defer></script>
+  </body>
 </html>

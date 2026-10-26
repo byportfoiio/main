@@ -1,1096 +1,536 @@
 (() => {
+  "use strict";
 
-    "use strict";
-
-    /* =====================================================
+  /* =====================================================
        MOSCOW CLOCK
     ====================================================== */
 
-    const moscowTime =
-        document.getElementById(
-            "moscow-time"
-        );
+  const moscowTime = document.getElementById("moscow-time");
 
-
-    function updateMoscowTime() {
-
-        if (!moscowTime) {
-            return;
-        }
-
-
-        const now =
-            new Date();
-
-
-        const formatter =
-            new Intl.DateTimeFormat(
-                "ru-RU",
-                {
-                    timeZone:
-                        "Europe/Moscow",
-
-                    hour:
-                        "2-digit",
-
-                    minute:
-                        "2-digit",
-
-                    second:
-                        "2-digit",
-
-                    hour12:
-                        false
-                }
-            );
-
-
-        moscowTime.textContent =
-            formatter.format(now);
-
+  function updateMoscowTime() {
+    if (!moscowTime) {
+      return;
     }
 
+    const now = new Date();
 
-    updateMoscowTime();
+    const formatter = new Intl.DateTimeFormat("ru-RU", {
+      timeZone: "Europe/Moscow",
 
+      hour: "2-digit",
 
-    window.setInterval(
-        updateMoscowTime,
-        1000
-    );
+      minute: "2-digit",
 
+      second: "2-digit",
 
-    /* =====================================================
+      hour12: false,
+    });
+
+    moscowTime.textContent = formatter.format(now);
+  }
+
+  updateMoscowTime();
+
+  window.setInterval(updateMoscowTime, 1000);
+
+  /* =====================================================
        SLIDER CREATOR
     ====================================================== */
 
-    function createSlider({
-        trackSelector,
-        controlsSelector,
-        counterSelector
-    }) {
+  function createSlider({ trackSelector, controlsSelector, counterSelector }) {
+    const track = document.querySelector(trackSelector);
 
-        const track =
-            document.querySelector(
-                trackSelector
-            );
+    const controls = document.querySelector(controlsSelector);
 
+    const counter = document.querySelector(counterSelector);
 
-        const controls =
-            document.querySelector(
-                controlsSelector
-            );
+    if (!track || !controls) {
+      return null;
+    }
 
+    const viewport = track.parentElement;
 
-        const counter =
-            document.querySelector(
-                counterSelector
-            );
+    const pages = Array.from(track.children);
 
+    if (pages.length === 0) {
+      return null;
+    }
 
-        if (
-            !track ||
-            !controls
-        ) {
+    const previousButton = controls.querySelector('[data-action="prev"]');
 
-            return null;
+    const nextButton = controls.querySelector('[data-action="next"]');
 
-        }
+    const dots = Array.from(controls.querySelectorAll(".slider-dot"));
 
+    const pageTriggers = Array.from(track.querySelectorAll("[data-slide-to]"));
 
-        const viewport =
-            track.parentElement;
+    let currentIndex = 0;
 
-
-        const pages =
-            Array.from(
-                track.children
-            );
-
-
-        if (
-            pages.length === 0
-        ) {
-
-            return null;
-
-        }
-
-
-        const previousButton =
-            controls.querySelector(
-                '[data-action="prev"]'
-            );
-
-
-        const nextButton =
-            controls.querySelector(
-                '[data-action="next"]'
-            );
-
-
-        const dots =
-            Array.from(
-                controls.querySelectorAll(
-                    ".slider-dot"
-                )
-            );
-
-
-        let currentIndex =
-            0;
-
-
-        /* =================================================
+    /* =================================================
            UPDATE UI
         ================================================== */
 
-        function updateUI() {
+    function updateUI() {
+      const total = pages.length;
 
-            const total =
-                pages.length;
-
-
-            track.style.transform =
-                `translate3d(
+      track.style.transform = `translate3d(
                     -${currentIndex * 100}%,
                     0,
                     0
                 )`;
 
+      pages.forEach((page, index) => {
+        page.classList.toggle("is-active", index === currentIndex);
+      });
 
-            pages.forEach(
-                (
-                    page,
-                    index
-                ) => {
+      dots.forEach((dot, index) => {
+        const active = index === currentIndex;
 
-                    page.classList.toggle(
-                        "is-active",
-                        index === currentIndex
-                    );
+        dot.classList.toggle("active", active);
 
-                }
-            );
+        dot.setAttribute("aria-selected", String(active));
+      });
 
+      if (counter) {
+        counter.textContent = `PAGE ${currentIndex + 1}/${total}`;
+      }
 
-            dots.forEach(
-                (
-                    dot,
-                    index
-                ) => {
+      if (previousButton) {
+        previousButton.disabled = currentIndex === 0;
+      }
 
-                    const active =
-                        index ===
-                        currentIndex;
+      if (nextButton) {
+        nextButton.disabled = currentIndex === total - 1;
+      }
+    }
 
-
-                    dot.classList.toggle(
-                        "active",
-                        active
-                    );
-
-
-                    dot.setAttribute(
-                        "aria-selected",
-                        String(active)
-                    );
-
-                }
-            );
-
-
-            if (counter) {
-
-                counter.textContent =
-                    `PAGE ${
-                        currentIndex + 1
-                    }/${total}`;
-
-            }
-
-
-            if (previousButton) {
-
-                previousButton.disabled =
-                    currentIndex === 0;
-
-            }
-
-
-            if (nextButton) {
-
-                nextButton.disabled =
-                    currentIndex ===
-                    total - 1;
-
-            }
-
-        }
-
-
-        /* =================================================
+    /* =================================================
            GO TO
         ================================================== */
 
-        function goTo(index) {
+    function goTo(index) {
+      currentIndex = Math.max(0, Math.min(index, pages.length - 1));
 
-            currentIndex =
-                Math.max(
-                    0,
-                    Math.min(
-                        index,
-                        pages.length - 1
-                    )
-                );
+      updateUI();
+    }
 
-
-            updateUI();
-
-        }
-
-
-        /* =================================================
+    /* =================================================
            BUTTONS
         ================================================== */
 
-        previousButton?.addEventListener(
-            "click",
-            (event) => {
+    previousButton?.addEventListener("click", (event) => {
+      event.stopPropagation();
 
-                event.stopPropagation();
+      if (currentIndex <= 0) {
+        return;
+      }
 
+      goTo(currentIndex - 1);
+    });
 
-                if (
-                    currentIndex <= 0
-                ) {
+    nextButton?.addEventListener("click", (event) => {
+      event.stopPropagation();
 
-                    return;
+      if (currentIndex >= pages.length - 1) {
+        return;
+      }
 
-                }
+      goTo(currentIndex + 1);
+    });
 
-
-                goTo(
-                    currentIndex - 1
-                );
-
-            }
-        );
-
-
-        nextButton?.addEventListener(
-            "click",
-            (event) => {
-
-                event.stopPropagation();
-
-
-                if (
-                    currentIndex >=
-                    pages.length - 1
-                ) {
-
-                    return;
-
-                }
-
-
-                goTo(
-                    currentIndex + 1
-                );
-
-            }
-        );
-
-
-        /* =================================================
+    /* =================================================
            DOTS
         ================================================== */
 
-        dots.forEach(
-            (dot) => {
+    dots.forEach((dot) => {
+      dot.addEventListener("click", (event) => {
+        event.stopPropagation();
 
-                dot.addEventListener(
-                    "click",
-                    (event) => {
+        const index = Number(dot.dataset.index);
 
-                        event.stopPropagation();
+        if (Number.isNaN(index)) {
+          return;
+        }
 
+        goTo(index);
+      });
+    });
 
-                        const index =
-                            Number(
-                                dot.dataset.index
-                            );
+    pageTriggers.forEach((trigger) => {
+      trigger.addEventListener("click", () => {
+        const index = Number(trigger.dataset.slideTo);
 
+        if (!Number.isInteger(index)) {
+          return;
+        }
 
-                        if (
-                            Number.isNaN(index)
-                        ) {
+        goTo(index);
+      });
+    });
 
-                            return;
-
-                        }
-
-
-                        goTo(index);
-
-                    }
-                );
-
-            }
-        );
-
-
-        /* =================================================
+    /* =================================================
            POINTER DRAG
            PC + TOUCH
         ================================================== */
 
-        let pointerStartX =
-            0;
+    let pointerStartX = 0;
 
-        let pointerStartY =
-            0;
+    let pointerStartY = 0;
 
-        let pointerActive =
-            false;
+    let pointerActive = false;
 
-        let pointerDragged =
-            false;
+    let pointerDragged = false;
 
+    viewport?.addEventListener("pointerdown", (event) => {
+      /*
+       * Только левая кнопка мыши.
+       */
 
-        viewport?.addEventListener(
-            "pointerdown",
-            (event) => {
+      if (event.pointerType === "mouse" && event.button !== 0) {
+        return;
+      }
 
-                /*
-                 * Только левая кнопка мыши.
-                 */
+      /*
+       * Не начинаем drag на стрелке
+       * или точке.
+       */
 
-                if (
-                    event.pointerType ===
-                    "mouse" &&
-                    event.button !== 0
-                ) {
+      if (event.target.closest(".slider-arrow, .slider-dot, [data-slide-to]")) {
+        return;
+      }
 
-                    return;
+      pointerStartX = event.clientX;
 
-                }
+      pointerStartY = event.clientY;
 
+      pointerActive = true;
 
-                /*
-                 * Не начинаем drag на стрелке
-                 * или точке.
-                 */
+      pointerDragged = false;
 
-                if (
-                    event.target.closest(
-                        ".slider-arrow, .slider-dot"
-                    )
-                ) {
+      viewport.setPointerCapture?.(event.pointerId);
 
-                    return;
+      viewport.classList.add("is-dragging");
+    });
 
-                }
-
-
-                pointerStartX =
-                    event.clientX;
-
-
-                pointerStartY =
-                    event.clientY;
-
-
-                pointerActive =
-                    true;
-
-
-                pointerDragged =
-                    false;
-
-
-                viewport.setPointerCapture?.(
-                    event.pointerId
-                );
-
-
-                viewport.classList.add(
-                    "is-dragging"
-                );
-
-            }
-        );
-
-
-        viewport?.addEventListener(
-            "pointermove",
-            (event) => {
-
-                if (
-                    !pointerActive
-                ) {
-
-                    return;
-
-                }
-
-
-                const deltaX =
-                    event.clientX -
-                    pointerStartX;
-
-
-                const deltaY =
-                    event.clientY -
-                    pointerStartY;
-
-
-                /*
-                 * Считаем drag горизонтальным
-                 * только когда X больше Y.
-                 */
-
-                if (
-                    !pointerDragged &&
-                    Math.abs(deltaX) > 10 &&
-                    Math.abs(deltaX) >
-                    Math.abs(deltaY)
-                ) {
-
-                    pointerDragged =
-                        true;
-
-                }
-
-
-                if (
-                    pointerDragged
-                ) {
-
-                    event.preventDefault();
-
-                }
-
-            },
-            {
-                passive:
-                    false
-            }
-        );
-
-
-        function finishPointer(event) {
-
-            if (
-                !pointerActive
-            ) {
-
-                return;
-
-            }
-
-
-            pointerActive =
-                false;
-
-
-            viewport.classList.remove(
-                "is-dragging"
-            );
-
-
-            const deltaX =
-                event.clientX -
-                pointerStartX;
-
-
-            const deltaY =
-                event.clientY -
-                pointerStartY;
-
-
-            const horizontal =
-                Math.abs(deltaX) >
-                Math.abs(deltaY);
-
-
-            const enough =
-                Math.abs(deltaX) >= 55;
-
-
-            if (
-                horizontal &&
-                enough
-            ) {
-
-                /*
-                 * LEFT = NEXT
-                 * RIGHT = PREVIOUS
-                 */
-
-                if (
-                    deltaX < 0
-                ) {
-
-                    goTo(
-                        currentIndex + 1
-                    );
-
-                } else {
-
-                    goTo(
-                        currentIndex - 1
-                    );
-
-                }
-
-            }
-
-
-            try {
-
-                viewport.releasePointerCapture?.(
-                    event.pointerId
-                );
-
-            } catch {
-
-                /* Nothing */
-
-            }
-
+    viewport?.addEventListener(
+      "pointermove",
+      (event) => {
+        if (!pointerActive) {
+          return;
         }
 
+        const deltaX = event.clientX - pointerStartX;
 
-        viewport?.addEventListener(
-            "pointerup",
-            finishPointer
-        );
+        const deltaY = event.clientY - pointerStartY;
 
+        /*
+         * Считаем drag горизонтальным
+         * только когда X больше Y.
+         */
 
-        viewport?.addEventListener(
-            "pointercancel",
-            finishPointer
-        );
+        if (
+          !pointerDragged &&
+          Math.abs(deltaX) > 10 &&
+          Math.abs(deltaX) > Math.abs(deltaY)
+        ) {
+          pointerDragged = true;
+        }
 
+        if (pointerDragged) {
+          event.preventDefault();
+        }
+      },
+      {
+        passive: false,
+      },
+    );
 
-        viewport?.addEventListener(
-            "lostpointercapture",
-            () => {
+    function finishPointer(event) {
+      if (!pointerActive) {
+        return;
+      }
 
-                pointerActive =
-                    false;
+      pointerActive = false;
 
+      viewport.classList.remove("is-dragging");
 
-                viewport.classList.remove(
-                    "is-dragging"
-                );
+      const deltaX = event.clientX - pointerStartX;
 
-            }
-        );
+      const deltaY = event.clientY - pointerStartY;
 
+      const horizontal = Math.abs(deltaX) > Math.abs(deltaY);
 
-        viewport?.addEventListener(
-            "dragstart",
-            (event) => {
+      const enough = Math.abs(deltaX) >= 55;
 
-                event.preventDefault();
+      if (horizontal && enough) {
+        /*
+         * LEFT = NEXT
+         * RIGHT = PREVIOUS
+         */
 
-            }
-        );
+        if (deltaX < 0) {
+          goTo(currentIndex + 1);
+        } else {
+          goTo(currentIndex - 1);
+        }
+      }
 
+      try {
+        viewport.releasePointerCapture?.(event.pointerId);
+      } catch {
+        /* Nothing */
+      }
+    }
 
-        /* =================================================
+    viewport?.addEventListener("pointerup", finishPointer);
+
+    viewport?.addEventListener("pointercancel", finishPointer);
+
+    viewport?.addEventListener("lostpointercapture", () => {
+      pointerActive = false;
+
+      viewport.classList.remove("is-dragging");
+    });
+
+    viewport?.addEventListener("dragstart", (event) => {
+      event.preventDefault();
+    });
+
+    /* =================================================
            INITIAL RENDER
         ================================================== */
 
-        updateUI();
+    updateUI();
 
+    return {
+      next() {
+        goTo(currentIndex + 1);
+      },
 
-        return {
+      previous() {
+        goTo(currentIndex - 1);
+      },
+    };
+  }
 
-            next() {
-
-                goTo(
-                    currentIndex + 1
-                );
-
-            },
-
-            previous() {
-
-                goTo(
-                    currentIndex - 1
-                );
-
-            }
-
-        };
-
-    }
-
-
-    /* =====================================================
+  /* =====================================================
        INITIALIZE SLIDERS
     ====================================================== */
 
-    const aboutSlider =
-        createSlider({
+  const aboutSlider = createSlider({
+    trackSelector: ".about-track",
 
-            trackSelector:
-                ".about-track",
+    controlsSelector: '[data-slider-controls="about"]',
 
-            controlsSelector:
-                '[data-slider-controls="about"]',
+    counterSelector: ".about-counter",
+  });
 
-            counterSelector:
-                ".about-counter"
+  createSlider({
+    trackSelector: ".devices-track",
 
-        });
+    controlsSelector: '[data-slider-controls="devices"]',
 
+    counterSelector: ".devices-counter",
+  });
 
-    createSlider({
+  createSlider({
+    trackSelector: ".contact-track",
 
-        trackSelector:
-            ".devices-track",
+    controlsSelector: '[data-slider-controls="contact"]',
 
-        controlsSelector:
-            '[data-slider-controls="devices"]',
+    counterSelector: ".contact-counter",
+  });
 
-        counterSelector:
-            ".devices-counter"
-
-    });
-
-
-    createSlider({
-
-        trackSelector:
-            ".contact-track",
-
-        controlsSelector:
-            '[data-slider-controls="contact"]',
-
-        counterSelector:
-            ".contact-counter"
-
-    });
-
-
-    /* =====================================================
+  /* =====================================================
        KEYBOARD
     ====================================================== */
 
-    document.addEventListener(
-        "keydown",
-        (event) => {
+  document.addEventListener("keydown", (event) => {
+    const tagName = document.activeElement?.tagName;
 
-            const tagName =
-                document.activeElement?.tagName;
+    const isTyping =
+      tagName === "INPUT" || tagName === "TEXTAREA" || tagName === "SELECT";
 
+    if (isTyping) {
+      return;
+    }
 
-            const isTyping =
-                tagName === "INPUT" ||
-                tagName === "TEXTAREA" ||
-                tagName === "SELECT";
+    if (event.key === "ArrowLeft") {
+      event.preventDefault();
 
+      aboutSlider?.previous();
+    }
 
-            if (
-                isTyping
-            ) {
+    if (event.key === "ArrowRight") {
+      event.preventDefault();
 
-                return;
+      aboutSlider?.next();
+    }
+  });
 
-            }
-
-
-            if (
-                event.key ===
-                "ArrowLeft"
-            ) {
-
-                event.preventDefault();
-
-                aboutSlider?.previous();
-
-            }
-
-
-            if (
-                event.key ===
-                "ArrowRight"
-            ) {
-
-                event.preventDefault();
-
-                aboutSlider?.next();
-
-            }
-
-        }
-    );
-
-
-    /* =====================================================
+  /* =====================================================
        MAIN SECTION NAVIGATION
     ====================================================== */
 
-    const sections =
-        Array.from(
-            document.querySelectorAll(
-                ".section"
-            )
-        );
+  const sections = Array.from(document.querySelectorAll(".section"));
 
+  const sectionDots = Array.from(document.querySelectorAll(".section-nav-dot"));
 
-    const sectionDots =
-        Array.from(
-            document.querySelectorAll(
-                ".section-nav-dot"
-            )
-        );
+  const sectionBars = Array.from(
+    document.querySelectorAll(".section-progress-bar"),
+  );
 
+  function setActiveSection(index) {
+    sectionDots.forEach((dot, dotIndex) => {
+      dot.classList.toggle("active", dotIndex === index);
+    });
 
-    const sectionBars =
-        Array.from(
-            document.querySelectorAll(
-                ".section-progress-bar"
-            )
-        );
+    sectionBars.forEach((bar, barIndex) => {
+      bar.classList.toggle("active", barIndex === index);
+    });
+  }
 
-
-    function setActiveSection(index) {
-
-        sectionDots.forEach(
-            (
-                dot,
-                dotIndex
-            ) => {
-
-                dot.classList.toggle(
-                    "active",
-                    dotIndex === index
-                );
-
-            }
-        );
-
-
-        sectionBars.forEach(
-            (
-                bar,
-                barIndex
-            ) => {
-
-                bar.classList.toggle(
-                    "active",
-                    barIndex === index
-                );
-
-            }
-        );
-
-    }
-
-
-    /* =====================================================
+  /* =====================================================
        DESKTOP SIDE DOTS
     ====================================================== */
 
-    sectionDots.forEach(
-        (
-            dot,
-            index
-        ) => {
+  sectionDots.forEach((dot, index) => {
+    dot.addEventListener("click", (event) => {
+      event.preventDefault();
 
-            dot.addEventListener(
-                "click",
-                (event) => {
+      const target = sections[index];
 
-                    event.preventDefault();
+      if (!target) {
+        return;
+      }
 
+      target.scrollIntoView({
+        behavior: "smooth",
 
-                    const target =
-                        sections[index];
+        block: "start",
+      });
 
+      setActiveSection(index);
+    });
+  });
 
-                    if (
-                        !target
-                    ) {
-
-                        return;
-
-                    }
-
-
-                    target.scrollIntoView({
-                        behavior:
-                            "smooth",
-
-                        block:
-                            "start"
-                    });
-
-
-                    setActiveSection(
-                        index
-                    );
-
-                }
-            );
-
-        }
-    );
-
-
-    /* =====================================================
+  /* =====================================================
        TOP RIGHT BARS
     ====================================================== */
 
-    sectionBars.forEach(
-        (
-            bar,
-            index
-        ) => {
+  sectionBars.forEach((bar, index) => {
+    bar.addEventListener("click", (event) => {
+      event.preventDefault();
 
-            bar.addEventListener(
-                "click",
-                (event) => {
+      const target = sections[index];
 
-                    event.preventDefault();
+      if (!target) {
+        return;
+      }
 
+      target.scrollIntoView({
+        behavior: "smooth",
 
-                    const target =
-                        sections[index];
+        block: "start",
+      });
 
+      setActiveSection(index);
+    });
+  });
 
-                    if (
-                        !target
-                    ) {
-
-                        return;
-
-                    }
-
-
-                    target.scrollIntoView({
-                        behavior:
-                            "smooth",
-
-                        block:
-                            "start"
-                    });
-
-
-                    setActiveSection(
-                        index
-                    );
-
-                }
-            );
-
-        }
-    );
-
-
-    /* =====================================================
+  /* =====================================================
        SECTION OBSERVER
     ====================================================== */
 
-    if (
-        "IntersectionObserver"
-        in window
-    ) {
+  if ("IntersectionObserver" in window) {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        let strongest = null;
 
-        const observer =
-            new IntersectionObserver(
+        entries.forEach((entry) => {
+          if (!entry.isIntersecting) {
+            return;
+          }
 
-                (entries) => {
+          /*
+           * Включаем появление
+           * секции.
+           */
 
-                    let strongest =
-                        null;
+          entry.target.classList.add("section-visible");
 
+          if (
+            !strongest ||
+            entry.intersectionRatio > strongest.intersectionRatio
+          ) {
+            strongest = entry;
+          }
+        });
 
-                    entries.forEach(
-                        (entry) => {
+        if (!strongest) {
+          return;
+        }
 
-                            if (
-                                !entry.isIntersecting
-                            ) {
+        const index = sections.indexOf(strongest.target);
 
-                                return;
+        if (index !== -1) {
+          setActiveSection(index);
+        }
+      },
 
-                            }
+      {
+        threshold: [0.35, 0.55, 0.7],
+      },
+    );
 
+    sections.forEach((section) => {
+      observer.observe(section);
+    });
+  }
 
-                            /*
-                             * Включаем появление
-                             * секции.
-                             */
-
-                            entry.target.classList.add(
-                                "section-visible"
-                            );
-
-
-                            if (
-                                !strongest ||
-                                entry.intersectionRatio >
-                                strongest.intersectionRatio
-                            ) {
-
-                                strongest =
-                                    entry;
-
-                            }
-
-                        }
-                    );
-
-
-                    if (
-                        !strongest
-                    ) {
-
-                        return;
-
-                    }
-
-
-                    const index =
-                        sections.indexOf(
-                            strongest.target
-                        );
-
-
-                    if (
-                        index !== -1
-                    ) {
-
-                        setActiveSection(
-                            index
-                        );
-
-                    }
-
-                },
-
-                {
-                    threshold: [
-                        0.35,
-                        0.55,
-                        0.70
-                    ]
-
-                }
-
-            );
-
-
-        sections.forEach(
-            (section) => {
-
-                observer.observe(
-                    section
-                );
-
-            }
-        );
-
-    }
-
-
-    /* =====================================================
+  /* =====================================================
        INITIAL SECTION
     ====================================================== */
 
-    sections[0]?.classList.add(
-        "section-visible"
-    );
+  sections[0]?.classList.add("section-visible");
 
+  setActiveSection(0);
 
-    setActiveSection(0);
-
-
-    /* =====================================================
+  /* =====================================================
        HASH NAVIGATION
     ====================================================== */
 
-    window.addEventListener(
-        "load",
-        () => {
+  window.addEventListener("load", () => {
+    const hash = window.location.hash;
 
-            const hash =
-                window.location.hash;
+    if (!hash) {
+      return;
+    }
 
+    const target = document.querySelector(hash);
 
-            if (
-                !hash
-            ) {
+    if (!target) {
+      return;
+    }
 
-                return;
+    window.setTimeout(() => {
+      target.scrollIntoView({
+        behavior: "smooth",
 
-            }
+        block: "start",
+      });
+    }, 120);
+  });
 
-
-            const target =
-                document.querySelector(
-                    hash
-                );
-
-
-            if (
-                !target
-            ) {
-
-                return;
-
-            }
-
-
-            window.setTimeout(
-                () => {
-
-                    target.scrollIntoView({
-                        behavior:
-                            "smooth",
-
-                        block:
-                            "start"
-                    });
-
-                },
-                120
-            );
-
-        }
-    );
-
-
-    /* =====================================================
+  /* =====================================================
        AVATAR PROTECTION
     ====================================================== */
 
-    const avatar =
-        document.querySelector(
-            ".avatar-image"
-        );
+  const avatar = document.querySelector(".avatar-image");
 
-
-    if (avatar) {
-
-        avatar.addEventListener(
-            "error",
-            () => {
-
-                avatar.style.visibility =
-                    "hidden";
-
-            }
-        );
-
-    }
-
-
+  if (avatar) {
+    avatar.addEventListener("error", () => {
+      avatar.style.visibility = "hidden";
+    });
+  }
 })();
