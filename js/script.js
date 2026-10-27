@@ -176,16 +176,7 @@
         return;
       }
 
-      /*
-       * Не начинаем drag на стрелке
-       * или точке.
-       */
-
-      if (
-        event.target.closest(
-          ".slider-arrow, .slider-dot, [data-open-cyber], a",
-        )
-      ) {
+      if (event.target.closest("button, a")) {
         return;
       }
 
@@ -327,6 +318,14 @@
     counterSelector: ".cyber-counter",
   });
 
+  const programmingSlider = createSlider({
+    trackSelector: ".programming-track",
+
+    controlsSelector: '[data-slider-controls="programming"]',
+
+    counterSelector: ".programming-counter",
+  });
+
   const profileShell = document.querySelector("#about .section-shell");
 
   const profileMain = document.querySelector(".profile-main");
@@ -335,45 +334,67 @@
     ".profile-main-controls",
   );
 
-  const cyberDetail = document.querySelector(".cyber-detail");
+  const profileDetails = [
+    {
+      detail: document.querySelector(".cyber-detail"),
+      trigger: document.querySelector("[data-open-cyber]"),
+      closeButton: document.querySelector("[data-close-cyber]"),
+      slider: cyberSlider,
+    },
+    {
+      detail: document.querySelector(".programming-detail"),
+      trigger: document.querySelector("[data-open-programming]"),
+      closeButton: document.querySelector("[data-close-programming]"),
+      slider: programmingSlider,
+    },
+  ];
 
-  const openCyberButton = document.querySelector("[data-open-cyber]");
+  let activeProfileDetail = null;
 
-  const closeCyberButton = document.querySelector("[data-close-cyber]");
-
-  function openCyberDetails() {
+  function openProfileDetail(profileDetail) {
     if (
       !profileShell ||
       !profileMain ||
       !profileMainControls ||
-      !cyberDetail ||
-      !openCyberButton
+      !profileDetail.detail ||
+      !profileDetail.trigger
     ) {
       return;
     }
 
     aboutSlider?.goTo(1);
-    cyberSlider?.goTo(0);
+    profileDetail.slider?.goTo(0);
 
     profileShell.classList.add("profile-expanded");
     profileMain.inert = true;
     profileMainControls.inert = true;
-    cyberDetail.inert = false;
-    cyberDetail.setAttribute("aria-hidden", "false");
-    openCyberButton.setAttribute("aria-expanded", "true");
 
-    closeCyberButton?.focus({
+    profileDetails.forEach(({ detail, trigger }) => {
+      if (!detail || !trigger) {
+        return;
+      }
+
+      const active = detail === profileDetail.detail;
+
+      detail.classList.toggle("is-open", active);
+      detail.inert = !active;
+      detail.setAttribute("aria-hidden", String(!active));
+      trigger.setAttribute("aria-expanded", String(active));
+    });
+
+    activeProfileDetail = profileDetail;
+
+    profileDetail.closeButton?.focus({
       preventScroll: true,
     });
   }
 
-  function closeCyberDetails() {
+  function closeProfileDetail() {
     if (
       !profileShell ||
       !profileMain ||
       !profileMainControls ||
-      !cyberDetail ||
-      !openCyberButton
+      !activeProfileDetail
     ) {
       return;
     }
@@ -381,22 +402,39 @@
     profileShell.classList.remove("profile-expanded");
     profileMain.inert = false;
     profileMainControls.inert = false;
-    cyberDetail.inert = true;
-    cyberDetail.setAttribute("aria-hidden", "true");
-    openCyberButton.setAttribute("aria-expanded", "false");
 
-    openCyberButton.focus({
+    const previousTrigger = activeProfileDetail.trigger;
+
+    profileDetails.forEach(({ detail, trigger }) => {
+      detail?.classList.remove("is-open");
+      if (detail) {
+        detail.inert = true;
+        detail.setAttribute("aria-hidden", "true");
+      }
+      trigger?.setAttribute("aria-expanded", "false");
+    });
+
+    activeProfileDetail = null;
+
+    previousTrigger?.focus({
       preventScroll: true,
     });
   }
 
-  openCyberButton?.addEventListener("click", openCyberDetails);
+  profileDetails.forEach((profileDetail) => {
+    profileDetail.trigger?.addEventListener("click", () => {
+      openProfileDetail(profileDetail);
+    });
 
-  closeCyberButton?.addEventListener("click", closeCyberDetails);
+    profileDetail.closeButton?.addEventListener(
+      "click",
+      closeProfileDetail,
+    );
 
-  if (cyberDetail) {
-    cyberDetail.inert = true;
-  }
+    if (profileDetail.detail) {
+      profileDetail.detail.inert = true;
+    }
+  });
 
   createSlider({
     trackSelector: ".devices-track",
@@ -428,16 +466,16 @@
       return;
     }
 
-    if (profileShell?.classList.contains("profile-expanded")) {
+    if (activeProfileDetail) {
       if (event.key === "Escape") {
         event.preventDefault();
-        closeCyberDetails();
+        closeProfileDetail();
       } else if (event.key === "ArrowLeft") {
         event.preventDefault();
-        cyberSlider?.previous();
+        activeProfileDetail.slider?.previous();
       } else if (event.key === "ArrowRight") {
         event.preventDefault();
-        cyberSlider?.next();
+        activeProfileDetail.slider?.next();
       }
 
       return;

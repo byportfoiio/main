@@ -3012,6 +3012,42 @@ a:focus-visible {
   margin-top: 12px;
 }
 
+.cyber-copy .cyber-disclosure {
+  padding: 12px 14px;
+  border: 1px solid rgba(0, 255, 136, 0.18);
+  border-left: 2px solid #00ff88;
+  border-radius: 6px;
+  background: linear-gradient(110deg, rgba(0, 255, 136, 0.07), transparent 80%);
+}
+
+.cyber-disclosure-label {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  margin-bottom: 5px;
+  color: #00ff88;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 1px;
+}
+
+.cyber-disclosure-label::before {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: currentColor;
+  box-shadow: 0 0 8px currentColor;
+  content: "";
+  animation: cyber-status-pulse 1.8s ease-in-out infinite;
+}
+
+@keyframes cyber-status-pulse {
+  50% {
+    opacity: 0.4;
+    box-shadow: 0 0 2px currentColor;
+  }
+}
+
 .cyber-copy .cyber-safety-note {
   padding-left: 12px;
   border-left: 2px solid rgba(255, 255, 255, 0.22);
@@ -3048,6 +3084,10 @@ a:focus-visible {
   .cyber-copy .cyber-safety-note {
     font-size: 10px;
   }
+
+  .cyber-disclosure-label {
+    font-size: 9px;
+  }
 }
 
 .profile-shell {
@@ -3069,7 +3109,7 @@ a:focus-visible {
   transition: opacity 0.25s ease;
 }
 
-.cyber-detail {
+.profile-detail {
   position: absolute;
   z-index: 2;
   inset: 0;
@@ -3115,7 +3155,7 @@ a:focus-visible {
   display: none;
 }
 
-.profile-expanded .cyber-detail {
+.profile-expanded .profile-detail.is-open {
   opacity: 1;
   visibility: visible;
   pointer-events: auto;
@@ -3193,7 +3233,7 @@ a:focus-visible {
     grid-template-rows: minmax(0, 1fr);
   }
 
-  .cyber-detail {
+  .profile-detail {
     gap: 8px;
     padding: 10px;
     border-radius: 8px;
@@ -3224,7 +3264,96 @@ a:focus-visible {
 
 @media (prefers-reduced-motion: reduce) {
   .profile-shell,
-  .cyber-detail {
+  .profile-detail,
+  .cyber-disclosure-label::before {
     transition-duration: 0.01ms;
+    animation: none;
   }
+}
+
+.programming-detail {
+  --green: #a78bfa;
+  --green-bright: #c4b5fd;
+  --green-soft: rgba(167, 139, 250, 0.45);
+  --green-faint: rgba(167, 139, 250, 0.1);
+  --border: rgba(167, 139, 250, 0.2);
+  --border-bright: rgba(167, 139, 250, 0.45);
+
+  border-color: rgba(167, 139, 250, 0.26);
+  background:
+    radial-gradient(
+      circle at 50% 0,
+      rgba(167, 139, 250, 0.07),
+      transparent 50%
+    ),
+    rgba(5, 4, 12, 0.98);
+  box-shadow:
+    0 24px 80px rgba(0, 0, 0, 0.48),
+    inset 0 0 30px rgba(167, 139, 250, 0.025);
+}
+
+.programming-detail .cyber-detail-heading {
+  border-bottom-color: rgba(167, 139, 250, 0.18);
+  color: #b7a5ff;
+}
+
+.programming-detail .file-dot {
+  background: #a78bfa;
+  box-shadow: 0 0 12px rgba(167, 139, 250, 0.45);
+}
+
+.programming-detail .cyber-back-button:hover:not(:disabled),
+.programming-detail .cyber-controls .slider-arrow:hover:not(:disabled) {
+  color: #c4b5fd;
+  border-color: rgba(167, 139, 250, 0.55);
+  background: rgba(167, 139, 250, 0.09);
+}
+
+.programming-detail .cyber-controls .slider-dot.active {
+  background: #a78bfa;
+  box-shadow: 0 0 12px rgba(167, 139, 250, 0.35);
+}
+
+.programming-detail .secondary-title {
+  color: rgba(183, 165, 255, 0.78);
+}
+
+.programming-tools-page .tool-row {
+  white-space: normal;
+}
+
+.programming-tools-page .tool-row > span:first-of-type {
+  flex: 1 1 0;
+  min-width: 0;
+  overflow-wrap: anywhere;
+}
+
+.programming-tools-page .tool-category {
+  flex-shrink: 0;
+}
+
+.cyber-detail .cyber-detail-heading {
+  border-bottom-color: rgba(0, 255, 136, 0.18);
+  color: #00ff88;
+}
+
+.cyber-detail .secondary-title {
+  color: rgba(0, 255, 136, 0.72);
+}
+
+.cyber-detail .file-dot {
+  background: #00ff88;
+  box-shadow: 0 0 12px rgba(0, 255, 136, 0.45);
+}
+
+.cyber-detail .cyber-back-button:hover:not(:disabled),
+.cyber-detail .cyber-controls .slider-arrow:hover:not(:disabled) {
+  color: #16ff9a;
+  border-color: rgba(0, 255, 136, 0.55);
+  background: rgba(0, 255, 136, 0.09);
+}
+
+.cyber-detail .cyber-controls .slider-dot.active {
+  background: #00ff88;
+  box-shadow: 0 0 12px rgba(0, 255, 136, 0.35);
 }

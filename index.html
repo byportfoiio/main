@@ -211,10 +211,15 @@
                         <span class="category-status"> ПЕРЕЙТИ →</span>
                       </button>
 
-                      <button type="button" class="profile-category" disabled>
+                      <button
+                        type="button"
+                        class="profile-category is-available"
+                        data-open-programming
+                        aria-expanded="false"
+                      >
                         <span class="category-index">02</span>
                         <span class="category-name">Programming</span>
-                        <span class="category-status">СКОРО</span>
+                        <span class="category-status"> ПЕРЕЙТИ →</span>
                       </button>
 
                       <button type="button" class="profile-category" disabled>
@@ -231,7 +236,7 @@
               </div>
             </div>
 
-            <div class="cyber-detail" aria-hidden="true" inert>
+            <div class="cyber-detail profile-detail" aria-hidden="true" inert>
               <button
                 type="button"
                 class="slider-arrow cyber-back-button"
@@ -270,7 +275,8 @@
                             Больше всего в Red Team нравится приближенность к реальному хакингу.
                           </p>
 
-                          <p>
+                          <p class="cyber-disclosure">
+                            <span class="cyber-disclosure-label" aria-hidden="true">НАВЫКИ</span>
                             Я умею писать вредоносные ПО (ратки, руткиты, стиллеры, блокировщики и слабые вирусы),
                             проводить ddos/dos атаки, социальную инженерию и фишинг.
                             Все это я не распространяю и не использую в корыстных целях.
@@ -281,6 +287,7 @@
                           </p>
                         </div>
                       </div>
+
                     </div>
                   </article>
 
@@ -382,6 +389,252 @@
                   →
                 </button>
               </div>
+            </div>
+          </div>
+
+          <div
+            class="programming-detail profile-detail"
+            aria-hidden="true"
+            inert
+          >
+            <button
+              type="button"
+              class="slider-arrow cyber-back-button"
+              data-close-programming
+              aria-label="Back to profile"
+            >
+              ←
+            </button>
+
+            <div class="cyber-detail-heading">
+              <span class="file-dot"></span>
+              <span>~ programming.json</span>
+              <span class="page-counter programming-counter">PAGE 1/2</span>
+            </div>
+
+            <div class="slider-viewport cyber-viewport">
+              <div class="slider-track programming-track">
+                <article class="slider-page cyber-slide is-active">
+                  <div class="secondary-page-content programming-page">
+                    <div class="secondary-title">
+                      <span>// programming · low-level</span>
+                    </div>
+
+                    <div class="terminal-panel cyber-panel">
+                      <div class="panel-heading">ПРОГРАММИРОВАНИЕ</div>
+
+                      <div class="cyber-copy">
+                        <p>
+                          Занимаюсь системным программирование, но за 4 года в айтишке я успел поменять направление 4 раза.
+                          Первое, что связало меня с программированием это геймдев.
+                        </p>
+
+                        <p>
+                          Я умел работать в Unity, Godot, Roblox Studio и Unreal Engine. <br>
+                          Дальше я увлекся вебом, вскоре понял, что мне не нравится заебываться над адаптипом и базой данных. <br>
+                          И стал заниматься кибербезопасностью, чем занимаюсь дох сих пор.
+                        </p>
+
+                        <p>
+                          Сейчас занимаюсь системным программированием, и пишу все низкоуровневое.
+                        </p>
+
+                        <p class="cyber-safety-note">
+                          В системке я относительно недавно, поэтому пока что я не могу похвастаться чем либо.
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+                </article>
+
+                <article class="slider-page cyber-slide">
+                  <div class="secondary-page-content programming-languages-page">
+                    <div class="secondary-title">
+                      <span>// языки программирования</span>
+                    </div>
+
+                    <div class="terminal-panel">
+                      <div class="panel-heading">LANGUAGES</div>
+
+                      <div class="language-list">
+                        <div class="language-row"><span>C</span></div>
+                        <div class="language-row"><span>C++</span></div>
+                        <div class="language-row"><span>Python</span></div>
+                        <div class="language-row"><span>JavaScript</span></div>
+                        <div class="language-row"><span>Lua</span></div>
+                      </div>
+                    </div>
+
+                    <div class="favorite-panel">
+                      <span>Любимый язык</span>
+                      <strong>C++</strong>
+                    </div>
+                  </div>
+                </article>
+
+                <article class="slider-page cyber-slide">
+                  <div class="secondary-page-content programming-tools-page">
+                    <div class="secondary-title">
+                      <span>// инструменты и технологии</span>
+                    </div>
+
+                    <div class="terminal-panel tools-panel">
+                      <div class="panel-heading">TOOLS &amp; TECHNOLOGIES</div>
+
+                      <div class="tools-list">
+                        <div class="tool-row">
+                          <img
+                            src="./images/wrench.png"
+                            alt=""
+                            class="tool-icon"
+                            aria-hidden="true"
+                            draggable="false"
+                          />
+                          <span>HTML</span>
+                          <span class="tool-category">WEB</span>
+                        </div>
+
+                        <div class="tool-row">
+                          <img
+                            src="./images/wrench.png"
+                            alt=""
+                            class="tool-icon"
+                            aria-hidden="true"
+                            draggable="false"
+                          />
+                          <span>CSS</span>
+                          <span class="tool-category">WEB</span>
+                        </div>
+
+                        <div class="tool-row">
+                          <img
+                            src="./images/wrench.png"
+                            alt=""
+                            class="tool-icon"
+                            aria-hidden="true"
+                            draggable="false"
+                          />
+                          <span>Git</span>
+                          <span class="tool-category">VCS</span>
+                        </div>
+
+                        <div class="tool-row">
+                          <img
+                            src="./images/wrench.png"
+                            alt=""
+                            class="tool-icon"
+                            aria-hidden="true"
+                            draggable="false"
+                          />
+                          <span>Bash</span>
+                          <span class="tool-category">SHELL</span>
+                        </div>
+
+                        <div class="tool-row">
+                          <img
+                            src="./images/wrench.png"
+                            alt=""
+                            class="tool-icon"
+                            aria-hidden="true"
+                            draggable="false"
+                          />
+                          <span>PowerShell</span>
+                          <span class="tool-category">SHELL</span>
+                        </div>
+
+                        <div class="tool-row">
+                          <img
+                            src="./images/wrench.png"
+                            alt=""
+                            class="tool-icon"
+                            aria-hidden="true"
+                            draggable="false"
+                          />
+                          <span>Docker</span>
+                          <span class="tool-category">DEVOPS</span>
+                        </div>
+
+                        <div class="tool-row">
+                          <img
+                            src="./images/wrench.png"
+                            alt=""
+                            class="tool-icon"
+                            aria-hidden="true"
+                            draggable="false"
+                          />
+                          <span>SQL</span>
+                          <span class="tool-category">DATABASE</span>
+                        </div>
+
+                        <div class="tool-row">
+                          <img
+                            src="./images/wrench.png"
+                            alt=""
+                            class="tool-icon"
+                            aria-hidden="true"
+                            draggable="false"
+                          />
+                          <span>raylib for C</span>
+                          <span class="tool-category">LIBRARY</span>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </article>
+              </div>
+            </div>
+
+            <div
+              class="slider-controls cyber-controls"
+              data-slider-controls="programming"
+            >
+              <button
+                type="button"
+                class="slider-arrow"
+                data-action="prev"
+                aria-label="Previous programming page"
+              >
+                ←
+              </button>
+
+              <div
+                class="slider-dots"
+                role="tablist"
+                aria-label="Programming pages"
+              >
+                <button
+                  type="button"
+                  class="slider-dot active"
+                  data-index="0"
+                  aria-label="Programming overview"
+                  aria-selected="true"
+                ></button>
+
+                <button
+                  type="button"
+                  class="slider-dot"
+                  data-index="1"
+                  aria-label="Programming languages"
+                  aria-selected="false"
+                ></button>
+
+                <button
+                  type="button"
+                  class="slider-dot"
+                  data-index="2"
+                  aria-label="Programming tools and technologies"
+                  aria-selected="false"
+                ></button>
+              </div>
+
+              <button
+                type="button"
+                class="slider-arrow"
+                data-action="next"
+                aria-label="Next programming page"
+              >
+                →
+              </button>
             </div>
           </div>
 
