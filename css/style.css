@@ -3265,7 +3265,8 @@ a:focus-visible {
 @media (prefers-reduced-motion: reduce) {
   .profile-shell,
   .profile-detail,
-  .cyber-disclosure-label::before {
+  .cyber-disclosure-label::before,
+  .programming-disclosure-label::before {
     transition-duration: 0.01ms;
     animation: none;
   }
@@ -3316,6 +3317,35 @@ a:focus-visible {
 
 .programming-detail .secondary-title {
   color: rgba(183, 165, 255, 0.78);
+}
+
+.programming-page .programming-disclosure {
+  padding: 12px 14px;
+  border: 1px solid rgba(167, 139, 250, 0.2);
+  border-left: 2px solid #a78bfa;
+  border-radius: 6px;
+  background: linear-gradient(110deg, rgba(167, 139, 250, 0.07), transparent 80%);
+}
+
+.programming-disclosure-label {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  margin-bottom: 5px;
+  color: #b7a5ff;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 1px;
+}
+
+.programming-disclosure-label::before {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: currentColor;
+  box-shadow: 0 0 8px currentColor;
+  content: "";
+  animation: cyber-status-pulse 1.8s ease-in-out infinite;
 }
 
 .programming-tools-page .tool-row {
