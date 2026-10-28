@@ -2677,6 +2677,14 @@ body {
   background: rgba(11, 11, 11, 0.88);
 }
 
+.language-icon {
+  width: 20px;
+  height: 20px;
+  margin-right: 12px;
+  object-fit: contain;
+  filter: grayscale(1) brightness(0) invert(0.82);
+}
+
 .language-row:hover {
   border-color: rgba(255, 255, 255, 0.22);
 }
@@ -2691,6 +2699,13 @@ body {
 
 .favorite-panel strong {
   color: #d0d0d0;
+}
+
+.favorite-language-icon {
+  width: 30px;
+  height: 30px;
+  object-fit: contain;
+  filter: grayscale(1) brightness(0) invert(0.82);
 }
 
 /* =========================================================
