@@ -2971,22 +2971,6 @@ a:focus-visible {
   background: rgba(27, 27, 27, 0.94);
 }
 
-[data-open-cyber].is-available:hover {
-  border-color: rgba(0, 255, 136, 0.48);
-  background: rgba(0, 34, 20, 0.92);
-  box-shadow:
-    0 0 18px rgba(0, 255, 136, 0.12),
-    inset 0 0 18px rgba(0, 255, 136, 0.045);
-}
-
-[data-open-programming].is-available:hover {
-  border-color: rgba(167, 139, 250, 0.5);
-  background: rgba(28, 20, 46, 0.92);
-  box-shadow:
-    0 0 18px rgba(167, 139, 250, 0.14),
-    inset 0 0 18px rgba(167, 139, 250, 0.05);
-}
-
 .profile-category:disabled {
   color: #777;
   cursor: not-allowed;
@@ -3030,10 +3014,10 @@ a:focus-visible {
 
 .cyber-copy .cyber-disclosure {
   padding: 12px 14px;
-  border: 1px solid rgba(0, 255, 136, 0.18);
-  border-left: 2px solid #00ff88;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-left: 2px solid #d4d4d4;
   border-radius: 6px;
-  background: linear-gradient(110deg, rgba(0, 255, 136, 0.07), transparent 80%);
+  background: linear-gradient(110deg, rgba(255, 255, 255, 0.035), transparent 80%);
 }
 
 .cyber-disclosure-label {
@@ -3041,7 +3025,7 @@ a:focus-visible {
   align-items: center;
   gap: 7px;
   margin-bottom: 5px;
-  color: #00ff88;
+  color: #d4d4d4;
   font-size: 10px;
   font-weight: 700;
   letter-spacing: 1px;
@@ -3051,17 +3035,9 @@ a:focus-visible {
   width: 6px;
   height: 6px;
   border-radius: 50%;
-  background: currentColor;
-  box-shadow: 0 0 8px currentColor;
+  background: #d4d4d4;
+  box-shadow: none;
   content: "";
-  animation: cyber-status-pulse 1.8s ease-in-out infinite;
-}
-
-@keyframes cyber-status-pulse {
-  50% {
-    opacity: 0.4;
-    box-shadow: 0 0 2px currentColor;
-  }
 }
 
 .cyber-copy .cyber-safety-note {
@@ -3134,18 +3110,18 @@ a:focus-visible {
   gap: 12px;
   padding: 14px;
   overflow: hidden;
-  border: 1px solid rgba(0, 255, 136, 0.2);
+  border: 1px solid rgba(255, 255, 255, 0.12);
   border-radius: 10px;
   background:
     radial-gradient(
       circle at 50% 0,
-      rgba(0, 255, 136, 0.045),
+      rgba(255, 255, 255, 0.025),
       transparent 50%
     ),
-    rgba(3, 9, 6, 0.98);
+    rgba(8, 8, 8, 0.98);
   box-shadow:
     0 24px 80px rgba(0, 0, 0, 0.48),
-    inset 0 0 30px rgba(0, 255, 136, 0.018);
+    inset 0 0 30px rgba(255, 255, 255, 0.012);
   opacity: 0;
   visibility: hidden;
   pointer-events: none;
@@ -3191,8 +3167,8 @@ a:focus-visible {
   display: flex;
   align-items: center;
   gap: 10px;
-  border-bottom: 1px solid rgba(0, 255, 136, 0.1);
-  color: rgba(0, 255, 136, 0.72);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  color: #bdbdbd;
   font-size: 12px;
   letter-spacing: 1px;
 }
@@ -3232,7 +3208,7 @@ a:focus-visible {
   min-height: 0;
   max-height: 100%;
   overflow-y: auto;
-  scrollbar-color: rgba(0, 255, 136, 0.24) transparent;
+  scrollbar-color: rgba(255, 255, 255, 0.2) transparent;
 }
 
 .cyber-controls {
@@ -3290,58 +3266,51 @@ a:focus-visible {
 }
 
 .programming-detail {
-  --green: #a78bfa;
-  --green-bright: #c4b5fd;
-  --green-soft: rgba(167, 139, 250, 0.45);
-  --green-faint: rgba(167, 139, 250, 0.1);
-  --border: rgba(167, 139, 250, 0.2);
-  --border-bright: rgba(167, 139, 250, 0.45);
-
-  border-color: rgba(167, 139, 250, 0.26);
+  border-color: rgba(255, 255, 255, 0.12);
   background:
     radial-gradient(
       circle at 50% 0,
-      rgba(167, 139, 250, 0.07),
+      rgba(255, 255, 255, 0.025),
       transparent 50%
     ),
-    rgba(5, 4, 12, 0.98);
+    rgba(8, 8, 8, 0.98);
   box-shadow:
     0 24px 80px rgba(0, 0, 0, 0.48),
-    inset 0 0 30px rgba(167, 139, 250, 0.025);
+    inset 0 0 30px rgba(255, 255, 255, 0.012);
 }
 
 .programming-detail .cyber-detail-heading {
-  border-bottom-color: rgba(167, 139, 250, 0.18);
-  color: #b7a5ff;
+  border-bottom-color: rgba(255, 255, 255, 0.08);
+  color: #bdbdbd;
 }
 
 .programming-detail .file-dot {
-  background: #a78bfa;
-  box-shadow: 0 0 12px rgba(167, 139, 250, 0.45);
+  background: #d4d4d4;
+  box-shadow: none;
 }
 
 .programming-detail .cyber-back-button:hover:not(:disabled),
 .programming-detail .cyber-controls .slider-arrow:hover:not(:disabled) {
-  color: #c4b5fd;
-  border-color: rgba(167, 139, 250, 0.55);
-  background: rgba(167, 139, 250, 0.09);
+  color: #eeeeee;
+  border-color: rgba(255, 255, 255, 0.38);
+  background: rgba(255, 255, 255, 0.045);
 }
 
 .programming-detail .cyber-controls .slider-dot.active {
-  background: #a78bfa;
-  box-shadow: 0 0 12px rgba(167, 139, 250, 0.35);
+  background: #dedede;
+  box-shadow: none;
 }
 
 .programming-detail .secondary-title {
-  color: rgba(183, 165, 255, 0.78);
+  color: rgba(190, 190, 190, 0.65);
 }
 
 .programming-page .programming-disclosure {
   padding: 12px 14px;
-  border: 1px solid rgba(167, 139, 250, 0.2);
-  border-left: 2px solid #a78bfa;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-left: 2px solid #d4d4d4;
   border-radius: 6px;
-  background: linear-gradient(110deg, rgba(167, 139, 250, 0.07), transparent 80%);
+  background: linear-gradient(110deg, rgba(255, 255, 255, 0.035), transparent 80%);
 }
 
 .programming-disclosure-label {
@@ -3349,7 +3318,7 @@ a:focus-visible {
   align-items: center;
   gap: 7px;
   margin-bottom: 5px;
-  color: #b7a5ff;
+  color: #d4d4d4;
   font-size: 10px;
   font-weight: 700;
   letter-spacing: 1px;
@@ -3359,18 +3328,17 @@ a:focus-visible {
   width: 6px;
   height: 6px;
   border-radius: 50%;
-  background: currentColor;
-  box-shadow: 0 0 8px currentColor;
+  background: #d4d4d4;
+  box-shadow: none;
   content: "";
-  animation: cyber-status-pulse 1.8s ease-in-out infinite;
 }
 
 .design-page .design-disclosure {
   padding: 12px 14px;
-  border: 1px solid rgba(255, 184, 107, 0.2);
-  border-left: 2px solid #ffb86b;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-left: 2px solid #d4d4d4;
   border-radius: 6px;
-  background: linear-gradient(110deg, rgba(255, 184, 107, 0.07), transparent 80%);
+  background: linear-gradient(110deg, rgba(255, 255, 255, 0.035), transparent 80%);
 }
 
 .design-disclosure-label {
@@ -3378,7 +3346,7 @@ a:focus-visible {
   align-items: center;
   gap: 7px;
   margin-bottom: 5px;
-  color: #ffc98f;
+  color: #d4d4d4;
   font-size: 10px;
   font-weight: 700;
   letter-spacing: 1px;
@@ -3388,10 +3356,9 @@ a:focus-visible {
   width: 6px;
   height: 6px;
   border-radius: 50%;
-  background: currentColor;
-  box-shadow: 0 0 8px currentColor;
+  background: #d4d4d4;
+  box-shadow: none;
   content: "";
-  animation: cyber-status-pulse 1.8s ease-in-out infinite;
 }
 
 .programming-tools-page .tool-row {
@@ -3408,78 +3375,73 @@ a:focus-visible {
   flex-shrink: 0;
 }
 
-.design-category.is-available:hover {
-  border-color: rgba(255, 184, 107, 0.4);
-  background: rgba(36, 24, 14, 0.9);
-}
-
 .design-detail {
-  border-color: rgba(255, 184, 107, 0.26);
+  border-color: rgba(255, 255, 255, 0.12);
   background:
     radial-gradient(
       circle at 50% 0,
-      rgba(255, 184, 107, 0.07),
+      rgba(255, 255, 255, 0.025),
       transparent 50%
     ),
-    rgba(12, 8, 5, 0.98);
+    rgba(8, 8, 8, 0.98);
   box-shadow:
     0 24px 80px rgba(0, 0, 0, 0.48),
-    inset 0 0 30px rgba(255, 184, 107, 0.025);
+    inset 0 0 30px rgba(255, 255, 255, 0.012);
 }
 
 .design-detail .cyber-detail-heading {
-  border-bottom-color: rgba(255, 184, 107, 0.2);
-  color: #ffc98f;
+  border-bottom-color: rgba(255, 255, 255, 0.08);
+  color: #bdbdbd;
 }
 
 .design-detail .file-dot {
-  background: #ffb86b;
-  box-shadow: 0 0 12px rgba(255, 184, 107, 0.5);
+  background: #d4d4d4;
+  box-shadow: none;
 }
 
 .design-detail .secondary-title {
-  color: rgba(255, 201, 143, 0.78);
+  color: rgba(190, 190, 190, 0.65);
 }
 
 .design-detail .cyber-back-button:hover:not(:disabled),
 .design-detail .cyber-controls .slider-arrow:hover:not(:disabled) {
-  color: #ffd1a0;
-  border-color: rgba(255, 184, 107, 0.55);
-  background: rgba(255, 184, 107, 0.09);
+  color: #eeeeee;
+  border-color: rgba(255, 255, 255, 0.38);
+  background: rgba(255, 255, 255, 0.045);
 }
 
 .design-detail .cyber-controls .slider-dot.active {
-  background: #ffb86b;
-  box-shadow: 0 0 12px rgba(255, 184, 107, 0.4);
+  background: #dedede;
+  box-shadow: none;
 }
 
 .design-detail .cyber-slide .secondary-page-content {
-  scrollbar-color: rgba(255, 184, 107, 0.28) transparent;
+  scrollbar-color: rgba(255, 255, 255, 0.2) transparent;
 }
 
 
 .cyber-detail .cyber-detail-heading {
-  border-bottom-color: rgba(0, 255, 136, 0.18);
-  color: #00ff88;
+  border-bottom-color: rgba(255, 255, 255, 0.08);
+  color: #bdbdbd;
 }
 
 .cyber-detail .secondary-title {
-  color: rgba(0, 255, 136, 0.72);
+  color: rgba(190, 190, 190, 0.65);
 }
 
 .cyber-detail .file-dot {
-  background: #00ff88;
-  box-shadow: 0 0 12px rgba(0, 255, 136, 0.45);
+  background: #d4d4d4;
+  box-shadow: none;
 }
 
 .cyber-detail .cyber-back-button:hover:not(:disabled),
 .cyber-detail .cyber-controls .slider-arrow:hover:not(:disabled) {
-  color: #16ff9a;
-  border-color: rgba(0, 255, 136, 0.55);
-  background: rgba(0, 255, 136, 0.09);
+  color: #eeeeee;
+  border-color: rgba(255, 255, 255, 0.38);
+  background: rgba(255, 255, 255, 0.045);
 }
 
 .cyber-detail .cyber-controls .slider-dot.active {
-  background: #00ff88;
-  box-shadow: 0 0 12px rgba(0, 255, 136, 0.35);
+  background: #dedede;
+  box-shadow: none;
 }
