@@ -222,12 +222,17 @@
                         <span class="category-status"> ПЕРЕЙТИ →</span>
                       </button>
 
-                      <button type="button" class="profile-category" disabled>
+                      <button
+                        type="button"
+                        class="profile-category is-available design-category"
+                        data-open-design
+                        aria-expanded="false"
+                      >
                         <span class="category-index">03</span>
                         <span class="category-name"
                           >Installation &amp; Design</span
                         >
-                        <span class="category-status">СКОРО</span>
+                        <span class="category-status">ПЕРЕЙТИ →</span>
                       </button>
                     </div>
                   </div>
@@ -265,7 +270,7 @@
 
                         <div class="cyber-copy">
                           <p>
-                            Занимаюсь пентестингом, в первую очередь — Red Team:
+                            Занимаюсь пентестингом, в первую очередь - Red Team:
                             моделирование и имитация действий атакующего, чтобы
                             находить слабые места/уязвимости
                           </p>
@@ -633,6 +638,143 @@
                 class="slider-arrow"
                 data-action="next"
                 aria-label="Next programming page"
+              >
+                →
+              </button>
+            </div>
+          </div>
+
+          <div class="design-detail profile-detail" aria-hidden="true" inert>
+            <button
+              type="button"
+              class="slider-arrow cyber-back-button"
+              data-close-design
+              aria-label="Back to profile"
+            >
+              ←
+            </button>
+
+            <div class="cyber-detail-heading">
+              <span class="file-dot"></span>
+              <span>~ installation-design.json</span>
+              <span class="page-counter design-counter">PAGE 1/2</span>
+            </div>
+
+            <div class="slider-viewport cyber-viewport">
+              <div class="slider-track design-track">
+                <article class="slider-page cyber-slide is-active">
+                  <div class="secondary-page-content design-page">
+                    <div class="secondary-title">
+                      <span>// монтаж · графика · визуал</span>
+                    </div>
+
+                    <div class="terminal-panel cyber-panel">
+                      <div class="panel-heading">ВИЗУАЛЬНЫЙ РАССКАЗ</div>
+
+                      <div class="cyber-copy design-copy">
+                        <p>
+                          Монтажом и дизайном я занимаюсь как хобби, оно мне помогает ввести медийку, и расширять мой кругозор.
+                        </p>
+
+                        <p class="design-disclosure">
+                          <span class="design-disclosure-label" aria-hidden="true">ПРИМЕНЕНИЕ</span>
+                          Занимаюсь им я для распросранения сообщества, тгк и просто для себя.
+                          В основном дизайн и монтаж мне помогает в профессии, создавать лого, рекламирировать проекты и т.д.
+                          Умею монтировать длинные видео для ютуба, короткие информативные для тт и эдиты само сабой.
+                        </p>
+
+                        <p>
+                          По началу начинал с капкута, но вспомнив что есть пк, начал изучать более получше движки.
+                        </p>
+
+                        <p class="cyber-safety-note">
+                          Не на высоком уровне конечно
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+                </article>
+
+                <article class="slider-page cyber-slide">
+                  <div class="secondary-page-content design-tools-page">
+                    <div class="secondary-title">
+                      <span>// инструменты</span>
+                    </div>
+
+                    <div class="terminal-panel design-tools-panel">
+                      <div class="panel-heading">МОНТАЖ И ГРАФИКА</div>
+
+                      <div class="tools-list">
+                        <div class="tool-row">
+                          <img src="./images/wrench.png" alt="" class="tool-icon" aria-hidden="true" draggable="false" />
+                          <span>Kdenlive</span>
+                          <span class="tool-category">МОНТАЖ</span>
+                        </div>
+
+                        <div class="tool-row">
+                          <img src="./images/wrench.png" alt="" class="tool-icon" aria-hidden="true" draggable="false" />
+                          <span>Inkscape</span>
+                          <span class="tool-category">ГРАФИКА</span>
+                        </div>
+
+                        <div class="tool-row">
+                          <img src="./images/wrench.png" alt="" class="tool-icon" aria-hidden="true" draggable="false" />
+                          <span>CapCut</span>
+                          <span class="tool-category">МОНТАЖ</span>
+                        </div>
+
+                        <div class="tool-row">
+                          <img src="./images/wrench.png" alt="" class="tool-icon" aria-hidden="true" draggable="false" />
+                          <span>VSDC</span>
+                          <span class="tool-category">МОНТАЖ</span>
+                        </div>
+                      </div>
+                    </div>
+
+                    <div class="favorite-panel">
+                      <span>Любимый инструмент</span>
+                      <strong>VSDC</strong>
+                    </div>
+                  </div>
+                </article>
+              </div>
+            </div>
+
+            <div
+              class="slider-controls cyber-controls"
+              data-slider-controls="design"
+            >
+              <button
+                type="button"
+                class="slider-arrow"
+                data-action="prev"
+                aria-label="Previous design page"
+              >
+                ←
+              </button>
+
+              <div class="slider-dots" role="tablist" aria-label="Design pages">
+                <button
+                  type="button"
+                  class="slider-dot active"
+                  data-index="0"
+                  aria-label="Design overview"
+                  aria-selected="true"
+                ></button>
+                <button
+                  type="button"
+                  class="slider-dot"
+                  data-index="1"
+                  aria-label="Editing and design tools"
+                  aria-selected="false"
+                ></button>
+              </div>
+
+              <button
+                type="button"
+                class="slider-arrow"
+                data-action="next"
+                aria-label="Next design page"
               >
                 →
               </button>

@@ -326,6 +326,14 @@
     counterSelector: ".programming-counter",
   });
 
+  const designSlider = createSlider({
+    trackSelector: ".design-track",
+
+    controlsSelector: '[data-slider-controls="design"]',
+
+    counterSelector: ".design-counter",
+  });
+
   const profileShell = document.querySelector("#about .section-shell");
 
   const profileMain = document.querySelector(".profile-main");
@@ -346,6 +354,12 @@
       trigger: document.querySelector("[data-open-programming]"),
       closeButton: document.querySelector("[data-close-programming]"),
       slider: programmingSlider,
+    },
+    {
+      detail: document.querySelector(".design-detail"),
+      trigger: document.querySelector("[data-open-design]"),
+      closeButton: document.querySelector("[data-close-design]"),
+      slider: designSlider,
     },
   ];
 
