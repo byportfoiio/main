@@ -233,7 +233,7 @@ img {
 
   min-height: 100vh;
 
-  min-height: 100dvh;
+  min-height: 100svh;
 
   padding: 100px 7vw 60px;
 
@@ -251,7 +251,7 @@ img {
 .home-section {
   min-height: 100vh;
 
-  min-height: 100dvh;
+  min-height: 100svh;
 }
 
 .data-section {
@@ -1212,7 +1212,7 @@ img {
 
   min-height: 100vh;
 
-  min-height: 100dvh;
+  min-height: 100svh;
 
   background:
     radial-gradient(
@@ -1648,7 +1648,7 @@ img {
 
     min-height: 100vh;
 
-    min-height: 100dvh;
+    min-height: 100svh;
 
     height: auto;
 
@@ -1718,7 +1718,7 @@ img {
 
     min-height: calc(100vh - 116px);
 
-    min-height: calc(100dvh - 116px);
+    min-height: calc(100svh - 116px);
 
     grid-template-rows:
       auto
@@ -2050,13 +2050,13 @@ img {
   .section-shell {
     min-height: calc(100vh - 109px);
 
-    min-height: calc(100dvh - 109px);
+    min-height: calc(100svh - 109px);
   }
 
   .profile-expanded {
     height: calc(100vh - 109px);
 
-    height: calc(100dvh - 109px);
+    height: calc(100svh - 109px);
   }
 
   .avatar-frame {
@@ -3222,6 +3222,8 @@ a:focus-visible {
 }
 
 .cyber-track,
+.programming-track,
+.design-track,
 .cyber-slide {
   height: 100%;
   min-height: 0;
@@ -3237,6 +3239,8 @@ a:focus-visible {
   min-height: 0;
   max-height: 100%;
   overflow-y: auto;
+  overscroll-behavior-y: contain;
+  -webkit-overflow-scrolling: touch;
   scrollbar-color: rgba(255, 255, 255, 0.2) transparent;
 }
 
@@ -3249,7 +3253,7 @@ a:focus-visible {
   .profile-expanded {
     height: calc(100vh - 116px);
 
-    height: calc(100dvh - 116px);
+    height: calc(100svh - 116px);
 
     min-height: 0;
 
@@ -3271,6 +3275,21 @@ a:focus-visible {
     min-height: 42px;
     padding-left: 52px;
     font-size: 10px;
+  }
+
+  .programming-languages-page .language-row {
+    min-height: 48px;
+    padding: 0 12px;
+    font-size: 14px;
+  }
+
+  .programming-languages-page .language-row .tool-category {
+    max-width: 46%;
+    padding-left: 7px;
+    font-size: clamp(8px, 2.4vw, 10px);
+    letter-spacing: 0.3px;
+    text-align: right;
+    white-space: normal;
   }
 
   .cyber-back-button {
