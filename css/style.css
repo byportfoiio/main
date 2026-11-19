@@ -324,19 +324,19 @@ img {
 }
 
 .topline-line {
+  display: block;
+
   width: 100%;
 
   min-width: 24px;
 
-  height: 1px;
+  height: 2px;
 
-  background: linear-gradient(
-    90deg,
-    rgba(0, 255, 136, 0.42),
-    rgba(0, 255, 136, 0.05)
-  );
+  background: var(--green-soft);
 
-  border-radius: 1px;
+  opacity: 1;
+
+  border-radius: 2px;
 }
 
 .page-counter {
@@ -361,20 +361,6 @@ img {
   font-size: 15px;
 
   letter-spacing: 1.5px;
-}
-
-.file-dot {
-  width: 8px;
-
-  height: 8px;
-
-  flex: 0 0 auto;
-
-  border-radius: 50%;
-
-  background: var(--green);
-
-  box-shadow: 0 0 12px var(--green-soft);
 }
 
 /* =========================================================
@@ -501,36 +487,6 @@ img {
   border-bottom: 3px solid var(--green);
 
   border-right: 3px solid var(--green);
-}
-
-.record-status {
-  display: flex;
-
-  align-items: center;
-
-  gap: 9px;
-
-  margin-bottom: 27px;
-
-  color: rgba(143, 165, 148, 0.5);
-
-  font-size: 12px;
-
-  letter-spacing: 4px;
-}
-
-.record-dot {
-  width: 6px;
-
-  height: 6px;
-
-  border-radius: 50%;
-
-  background: #e73055;
-
-  box-shadow: 0 0 8px rgba(231, 48, 85, 0.38);
-
-  animation: rec-pulse 1.7s ease-in-out infinite;
 }
 
 .home-copy {
@@ -1515,17 +1471,6 @@ img {
    ANIMATIONS
 ========================================================= */
 
-@keyframes rec-pulse {
-  0%,
-  100% {
-    opacity: 1;
-  }
-
-  50% {
-    opacity: 0.35;
-  }
-}
-
 @keyframes avatar-enter {
   from {
     opacity: 0;
@@ -1659,12 +1604,6 @@ img {
     margin-bottom: 20px;
   }
 
-  .record-status {
-    margin-bottom: 26px;
-
-    font-size: 11px;
-  }
-
   .boot-label {
     margin-bottom: 12px;
 
@@ -1733,12 +1672,6 @@ img {
     font-size: 13px;
 
     letter-spacing: 1px;
-  }
-
-  .file-dot {
-    width: 7px;
-
-    height: 7px;
   }
 
   /* SLIDER */
@@ -2053,10 +1986,6 @@ img {
     height: 207px;
 
     margin-bottom: 18px;
-  }
-
-  .record-status {
-    margin-bottom: 21px;
   }
 
   .boot-label {
@@ -2503,11 +2432,7 @@ body {
 }
 
 .topline-line {
-  background: linear-gradient(
-    90deg,
-    rgba(255, 255, 255, 0.42),
-    rgba(255, 255, 255, 0.12)
-  );
+  background: rgba(255, 255, 255, 0.28);
 }
 
 .page-counter {
@@ -2516,12 +2441,6 @@ body {
 
 .file-heading {
   color: #aaaaaa;
-}
-
-.file-dot {
-  background: #d0d0d0;
-
-  box-shadow: 0 0 12px rgba(255, 255, 255, 0.18);
 }
 
 /* =========================================================
@@ -2553,10 +2472,6 @@ body {
 .frame-bottom-left,
 .frame-bottom-right {
   border-color: #d8d8d8;
-}
-
-.record-status {
-  color: rgba(170, 170, 170, 0.55);
 }
 
 .boot-label {
@@ -3318,11 +3233,6 @@ a:focus-visible {
   color: #bdbdbd;
 }
 
-.programming-detail .file-dot {
-  background: #d4d4d4;
-  box-shadow: none;
-}
-
 .programming-detail .cyber-back-button:hover:not(:disabled),
 .programming-detail .cyber-controls .slider-arrow:hover:not(:disabled) {
   color: #eeeeee;
@@ -3428,10 +3338,7 @@ a:focus-visible {
   color: #bdbdbd;
 }
 
-.design-detail .file-dot {
-  background: #d4d4d4;
-  box-shadow: none;
-}
+
 
 .design-detail .secondary-title {
   color: rgba(190, 190, 190, 0.65);
@@ -3461,11 +3368,6 @@ a:focus-visible {
 
 .cyber-detail .secondary-title {
   color: rgba(190, 190, 190, 0.65);
-}
-
-.cyber-detail .file-dot {
-  background: #d4d4d4;
-  box-shadow: none;
 }
 
 .cyber-detail .cyber-back-button:hover:not(:disabled),
