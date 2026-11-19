@@ -170,12 +170,6 @@ img {
   letter-spacing: 0.4px;
 }
 
-.logo-cursor {
-  color: var(--green);
-
-  animation: cursor-blink 1s steps(2, start) infinite;
-}
-
 /* =========================================================
    TOP RIGHT GREEN SECTION BARS
 ========================================================= */
@@ -330,6 +324,10 @@ img {
 }
 
 .topline-line {
+  width: 100%;
+
+  min-width: 24px;
+
   height: 1px;
 
   background: linear-gradient(
@@ -337,6 +335,8 @@ img {
     rgba(0, 255, 136, 0.42),
     rgba(0, 255, 136, 0.05)
   );
+
+  border-radius: 1px;
 }
 
 .page-counter {
@@ -1515,18 +1515,6 @@ img {
    ANIMATIONS
 ========================================================= */
 
-@keyframes cursor-blink {
-  0%,
-  48% {
-    opacity: 1;
-  }
-
-  49%,
-  100% {
-    opacity: 0;
-  }
-}
-
 @keyframes rec-pulse {
   0%,
   100% {
@@ -2488,10 +2476,6 @@ body {
   color: #d8d8d8;
 }
 
-.logo-cursor {
-  color: #ffffff;
-}
-
 /* =========================================================
    SECTION PROGRESS
 ========================================================= */
@@ -2521,8 +2505,8 @@ body {
 .topline-line {
   background: linear-gradient(
     90deg,
-    rgba(255, 255, 255, 0.28),
-    rgba(255, 255, 255, 0.035)
+    rgba(255, 255, 255, 0.42),
+    rgba(255, 255, 255, 0.12)
   );
 }
 

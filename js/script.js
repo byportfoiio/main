@@ -90,7 +90,7 @@
       });
 
       if (counter) {
-        counter.textContent = `PAGE ${currentIndex + 1}/${total}`;
+        counter.textContent = `СТРНЦ ${currentIndex + 1}/${total}`;
       }
 
       if (previousButton) {
